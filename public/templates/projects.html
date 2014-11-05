@@ -1,0 +1,68 @@
+<div class="projects">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="searchP" class="col-sm-2 control-label">Search</label>
+                    <div class="col-sm-7">
+                        <input ng-model="query" autofocus type="text" class="form-control" id="searchP" placeholder="">
+                    </div>
+                    <div class="col-md-3">
+                        <button confirmed-click="removeChecked()"
+                                ng-confirm-click class="btn btn-danger">Delete selected</button>
+                    </div>
+                </div>
+            </form>
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">All Projects</div>
+                <ul class="list-group projectList">
+                    <li class="project list-group-item" ng-repeat="project in projects | filter: query">
+                        <div>
+                            <div class="row">
+                                <div class="col-md-offset-0 col-md-8">
+                                    <h4><input type="checkbox" ng-model="project.done"
+                                               ng-checked="project.selected==1"/>
+                                        <a href="#/projects/<%project.id%>"><%project.title%></a>
+                                    </h4>
+                                    <div class="text-muted"><%project.student%></div>
+                                </div>
+                                <div class="col-md-4 text-right">
+                                    <span class="cnfBtn_<%project.id%>" ng-hide="<%project.done%>">
+                                        <button class="btn btn-success" confirmed-click="changeDone(project.id, '1')"
+                                           ng-confirm-click>Confirm</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-center">Add new</h3>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="title" class="col-sm-2 control-label">Title</label>
+                    <div class="col-sm-10">
+                        <input required ng-model="data.title" type="text" class="form-control" id="title" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="student" class="col-sm-2 control-label">Student</label>
+                    <div class="col-sm-10">
+                        <input required ng-model="data.student" type="text" class="form-control" id="student" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button ng-click="addNew()" type="submit" class="btn btn-info">Add new</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,144 @@
+body {
+    padding-top: 70px;
+}
+footer{
+    margin-top: 20px;
+}
+
+.nav-bar {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.smallWidth {
+    width: 5%;
+}
+
+.largeWidth {
+    width: 50%;
+}
+
+.medWidth {
+    width: 30%;
+}
+
+.pageSection {
+    margin-bottom: 20px;
+}
+
+.loginForm {
+    margin-top: 50px;
+    /*margin-left: 50px;*/
+}
+
+.logoLeft{
+    /*background: url(../images/ais.jpg) no-repeat left;*/
+    height: 69px;
+    display: block;
+}
+
+.logoRight {
+    /*background: url(../images/mqs.jpg) no-repeat right;*/
+    height: 69px;
+    display: block;
+}
+
+.logo {
+    display: block;
+    width: 180px;
+    height: 80px;
+}
+
+.logo_left {
+    display: block;
+    width: 300px;
+    height: 80px;
+}
+
+.infoMsg {
+    margin-top: 10px;
+}
+
+.searchInput {
+   width: 165px;
+}
+
+/* Fix for Bootstrap 3 with Angular UI Bootstrap */
+
+.modal {
+    display: block;
+}
+
+/* Custom dialog/modal headers */
+
+.dialog-header-error { background-color: #d2322d; }
+.dialog-header-wait { background-color: #428bca; }
+.dialog-header-notify { background-color: #eeeeee; }
+.dialog-header-confirm { background-color: #333333; }
+.dialog-header-error span, .dialog-header-error h4,
+.dialog-header-wait span, .dialog-header-wait h4,
+.dialog-header-confirm span, .dialog-header-confirm h4 { color: #ffffff; }
+
+/* Ease Display */
+
+.pad { padding: 25px; }
+
+.navbar-default {
+    background-color: #24729b;
+    border-color: #004566;
+}
+.navbar-default .navbar-brand {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #cecece;
+}
+.navbar-default .navbar-text {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #cecece;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #cecece;
+    background-color: #004566;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #cecece;
+    background-color: #004566;
+}
+.navbar-default .navbar-toggle {
+    border-color: #004566;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #004566;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+    color: #cecece;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #cecece;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #cecece;
+        background-color: #004566;
+    }
+}
