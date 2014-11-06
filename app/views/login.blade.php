@@ -2,7 +2,7 @@
 @section('title')Private system
 @stop
 @section('content')
-@include('partials.companyInfo')
+{{--@include('partials.companyInfo')--}}
 @include('partials.errorMsg')
 @include('partials.infoMsg')
 <div class="loginForm">

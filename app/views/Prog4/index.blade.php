@@ -3,11 +3,12 @@
 @stop
 @section('content')
 @include('partials.navigation')
-<div class="row" ng-app="app">
+<div class="row" ng-app="p4p">
     <ul class="nav nav-tabs" role="tablist" id="tabs">
-        <li id="ng-tab1" role="presentation" class="active"><a href="#/projects">Home</a></li>
-        <li id="ng-tab2" role="presentation"><a href="#/todo">Todos</a></li>
-        <li id="ng-tab3" role="presentation"><a href="#/demo">Demo</a></li>
+        <li id="ng-tab1" role="presentation" class="active"><a href="#/news">News</a></li>
+        <li id="ng-tab2" role="presentation" class="active"><a href="#/projects">Projects</a></li>
+        <li id="ng-tab3" role="presentation"><a href="#/todo">Todos</a></li>
+        <li id="ng-tab4" role="presentation"><a href="#/demo">Demo</a></li>
     </ul>
     <br/>
     <div ng-view class="theSPA"></div>

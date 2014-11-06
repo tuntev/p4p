@@ -41,12 +41,20 @@ app.service('ProjectsService', ['$http','$sanitize', function($http, $sanitize){
         },
 
         addNew: function(input){
-            return $http.post('p4projects', input);
+            return $http.post('p4projects', input).then(function(result) {
+                return result.data;
+            });;
         },
 
         delete: function(id){
             return $http.delete('p4projects/delete/' + id).error(function(data, status) {
                 console.log(status);
+            });
+        },
+
+        getProjectById: function(pId){
+            return $http.get('p4projects/' + pId).then(function(result) {
+                return result.data;
             });
         }
 

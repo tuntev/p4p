@@ -131,20 +131,40 @@ Route::group(array('before'=>'auth'), function(){
             'uses'=>'Prog4Controller@index'
         ));
         // get projects
-        Route::get('/p4projects', array(
-            'uses'=>'Prog4Controller@getProjects'
-        ));
+
+        Route::group(['prefix' => 'p4projects'], function(){
+
+            Route::get('/', array(
+                'uses'=>'Prog4Controller@getProjects'
+            ));
+
+            Route::get('/{id}', array(
+                'uses'=>'Prog4Controller@getProjectById'
+            ));
+
+
+            Route::put('/update/{id}', array(
+                'uses'=>'Prog4Controller@updateDone'
+            ));
+
+            // DELETE project
+            Route::delete('/delete/{id}', array(
+                'uses'=>'Prog4Controller@getDeleteProject'
+            ));
+
+        });
+
+
 
         // change DONE
-        Route::put('/p4projects/update/{id}', array(
-            'uses'=>'Prog4Controller@updateDone'
-        ));
 
-        // DELETE project
-        Route::delete('/p4projects/delete/{id}', array(
-            'uses'=>'Prog4Controller@getDeleteProject'
-        ));
 
+
+        // COURSES
+        Route::get('/courses', array(
+            'as'=>'courses',
+            'uses'=>'CoursesController@index'
+        ));
     });
 
 
