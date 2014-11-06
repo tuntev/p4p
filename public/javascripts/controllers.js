@@ -2,9 +2,15 @@
  * Created by tunte on 11/3/14.
  */
 
-app.controller('ProjectsController', ['$scope','ProjectsService','TabService', function($scope, ProjectsService, TabService){
+app.controller('HomeController',['$scope','TabService', function($scope, TabService){
 
     TabService.setTab(1);
+}]);
+
+app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$rootScope','$timeout','dialogs',
+    function($scope, ProjectsService, TabService, $rootScope, $timeout, dialogs){
+
+    TabService.setTab(2);
 
     // get all current project
     ProjectsService.getProjects().then(function(data) {
@@ -31,7 +37,9 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService', f
         if($scope.data.title !== "" && $scope.data.student !== ""){
             var projectData = ProjectsService.sanitizeInput($scope.data);
 
-            ProjectsService.addNew(projectData);
+            ProjectsService.addNew(projectData).then(function(data){
+                projectData.id = data;
+            });
             $scope.projects.push(projectData);
             $scope.data.title = '';
             $scope.data.student = '';
@@ -44,18 +52,99 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService', f
     // delete a project
     $scope.removeChecked = function() {
         $scope.projects = _.filter($scope.projects, function(item) {
-            if(item.done) {
+            if(item.selected) {
                 ProjectsService.delete(item.id);
             }
-            return !item.done;
+            return !item.selected;
         });
     };
+
+    // handle dialogs
+        $scope.launch = function(which, type, pId){
+            switch(which){
+                case 'error':
+                    dialogs.error();
+                    break;
+                case 'wait':
+                    var dlg = dialogs.wait(undefined,undefined,_progress);
+                    _fakeWaitProgress();
+                    break;
+                case 'customwait':
+                    var dlg = dialogs.wait('Custom Wait Header','Custom Wait Message',_progress);
+                    _fakeWaitProgress();
+                    break;
+                case 'notify':
+                    dialogs.notify();
+                    break;
+                case 'confirm':
+                    if(type === 'delete'){
+                        var dlg = dialogs.confirm('Confirm','Are you sure that you want to delete the selected projects?');
+                        dlg.result.then(function(btn){
+                            $scope.removeChecked();
+                        },function(btn){
+
+                        });
+                    }
+                    if(type === 'close'){
+                        var dlg = dialogs.confirm('Confirm','Are you sure that you want to finish the project?');
+                        dlg.result.then(function(btn){
+                            $scope.changeDone(pId,'1');
+                        },function(btn){
+
+                        });
+                    }
+
+                    break;
+                case 'custom':
+                    var dlg = dialogs.create('/dialogs/custom.html','customDialogCtrl',{},{size:'lg',keyboard: true,backdrop: false,windowClass: 'my-class'});
+                    dlg.result.then(function(name){
+                        $scope.name = name;
+                    },function(){
+                        if(angular.equals($scope.name,''))
+                            $scope.name = 'You did not enter in your name!';
+                    });
+                    break;
+                case 'custom2':
+                    var dlg = dialogs.create('/dialogs/custom2.html','customDialogCtrl2',$scope.custom,{size:'lg'});
+                    break;
+            }
+        }; // end launch
+
+        var _fakeWaitProgress = function(){
+            $timeout(function(){
+                if(_progress < 100){
+                    _progress += 33;
+                    $rootScope.$broadcast('dialogs.wait.progress',{'progress' : _progress});
+                    _fakeWaitProgress();
+                }else{
+                    $rootScope.$broadcast('dialogs.wait.complete');
+                    _progress = 33;
+                }
+            },1000);
+        }; // end _fakeWaitProgress
+}]);
+
+app.controller('ProjectDetailsController',['$scope','$routeParams','TabService','ProjectsService','$location',
+    function($scope, $routeParams,TabService, ProjectsService, $location){
+
+    TabService.setTab(2);
+    var pId = $routeParams.projectId;
+    ProjectsService.getProjectById(pId).then(function(data){
+        if(data.message){
+            $location.path('/projects');
+            return;
+        }
+        else{
+            $scope.project = data;
+        }
+    });
+
 }]);
 
 
 app.controller('TodoController', ['$http', '$scope', 'GetTodos','TabService', function($http, $scope, GetTodos, TabService){
 
-    TabService.setTab(2);
+    TabService.setTab(3);
 
     GetTodos.getData().then(function(data) {
         $scope.todos = data;
@@ -110,6 +199,6 @@ app.controller('TodoController', ['$http', '$scope', 'GetTodos','TabService', fu
 
 app.controller('DemoController', ['TabService', function(TabService){
 
-    TabService.setTab(3);
+    TabService.setTab(4);
 
 }]);

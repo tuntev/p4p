@@ -28,6 +28,7 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
+                @if(Auth::user()->access == 5)
                 <li id="adminNav" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -40,7 +41,7 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
-
+                @endif
                 <li><a href="#">Another Link</a></li>
             </ul>
             <form class="navbar-form navbar-left" role="search">

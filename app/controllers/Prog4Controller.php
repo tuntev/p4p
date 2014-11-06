@@ -18,6 +18,19 @@ class Prog4Controller extends BaseController{
         return $projects;
     }
 
+    public function getProjectById($id){
+
+        $project = P4Project::find($id);
+
+        if($project){
+            return $project;
+        }
+        else {
+            return Response::json(['message'=>'Invalid project number']);
+        }
+
+    }
+
     public function updateDone($id)
     {
         $input = Input::get('done');
@@ -44,10 +57,10 @@ class Prog4Controller extends BaseController{
         ));
 
         if($project){
-            return 1;
+            return $project->id;
         }
         else {
-            return 0;
+            return Response::json(['message'=>'Error while adding new user']);
         }
     }
 

@@ -8,8 +8,7 @@
                         <input ng-model="query" autofocus type="text" class="form-control" id="searchP" placeholder="">
                     </div>
                     <div class="col-md-3">
-                        <button confirmed-click="removeChecked()"
-                                ng-confirm-click class="btn btn-danger">Delete selected</button>
+                        <button ng-click="launch('confirm','delete')" class="btn btn-danger">Delete selected</button>
                     </div>
                 </div>
             </form>
@@ -21,7 +20,7 @@
                         <div>
                             <div class="row">
                                 <div class="col-md-offset-0 col-md-8">
-                                    <h4><input type="checkbox" ng-model="project.done"
+                                    <h4><input type="checkbox" ng-model="project.selected"
                                                ng-checked="project.selected==1"/>
                                         <a href="#/projects/<%project.id%>"><%project.title%></a>
                                     </h4>
@@ -29,8 +28,7 @@
                                 </div>
                                 <div class="col-md-4 text-right">
                                     <span class="cnfBtn_<%project.id%>" ng-hide="<%project.done%>">
-                                        <button class="btn btn-success" confirmed-click="changeDone(project.id, '1')"
-                                           ng-confirm-click>Confirm</button>
+                                        <button class="btn btn-success" ng-click="launch('confirm','close',project.id)">Confirm</button>
                                     </span>
                                 </div>
                             </div>

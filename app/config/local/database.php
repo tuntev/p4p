@@ -23,7 +23,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'p4proj',
+			'database'  => 'privateSystem',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
