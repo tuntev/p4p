@@ -1,1 +1,25 @@
-<h3>Just a demo</h3>
+<h3>Just a demo for search</h3>
+<div class="row">
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group ">
+            <input ng-change="drawResult(text)" ng-model="text" type="text" class="form-control" placeholder="Search">
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-offset-0 col-md-5">
+        <div class="list-group">
+            <a ng-repeat="person in data" href="" ng-click="showContent(person.id)" class="list-group-item"><%person.id%><%person.name%></a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Results</h3>
+            </div>
+            <div class="panel-body">
+                Get dte data for <%id%>
+            </div>
+        </div>
+    </div>
+</div>

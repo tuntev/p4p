@@ -1,12 +1,12 @@
 /**
  * Created by tunte on 11/3/14.
  */
-var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main'], function($interpolateProvider) {
+var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main'], ['$interpolateProvider', function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
-});
+}]);
 
-app.config(function($routeProvider){
+app.config(['$routeProvider', function($routeProvider){
 
     $routeProvider.when('/home', {
         templateUrl: 'templates/home.html',
@@ -36,6 +36,6 @@ app.config(function($routeProvider){
     $routeProvider.otherwise({
         redirectTo: '/home'
     });
-});
+}]);
 
 

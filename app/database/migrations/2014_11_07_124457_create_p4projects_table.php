@@ -12,7 +12,7 @@ class CreateP4projectsTable extends Migration {
 	 */
     public function up()
     {
-        Schema::create('p4projects', function($table){
+        Schema::create('p4projects', function(Blueprint $table){
             $table->increments('id');
             $table->string('title',255);
             $table->string('student',255);
@@ -21,15 +21,14 @@ class CreateP4projectsTable extends Migration {
 
         });
     }
-
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-        Schema::create('p4projects');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('p4projects');
+    }
 
 }

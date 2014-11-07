@@ -1,12 +1,12 @@
 /**
  * Created by tunte on 11/3/14.
  */
-var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main'], function($interpolateProvider) {
+var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main'], ['$interpolateProvider', function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
-});
+}]);
 
-app.config(function($routeProvider){
+app.config(['$routeProvider', function($routeProvider){
 
     $routeProvider.when('/home', {
         templateUrl: 'templates/home.html',
@@ -36,7 +36,7 @@ app.config(function($routeProvider){
     $routeProvider.otherwise({
         redirectTo: '/home'
     });
-});
+}]);
 
 
 
@@ -101,6 +101,15 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
         });
     };
 
+    $scope.selected = function(){
+        var count = 0;
+
+        angular.forEach($scope.projects, function(project){
+            count += project.selected ? 0 : 1;
+        });
+        return count;
+    }
+
     // handle dialogs
         $scope.launch = function(which, type, pId){
             switch(which){
@@ -120,12 +129,14 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
                     break;
                 case 'confirm':
                     if(type === 'delete'){
-                        var dlg = dialogs.confirm('Confirm','Are you sure that you want to delete the selected projects?');
-                        dlg.result.then(function(btn){
-                            $scope.removeChecked();
-                        },function(btn){
+                        if($scope.selected() !== $scope.projects.length){
+                            var dlg = dialogs.confirm('Confirm','Are you sure that you want to delete the selected projects?');
+                            dlg.result.then(function(btn){
+                                $scope.removeChecked();
+                            },function(btn){
 
-                        });
+                            });
+                        }
                     }
                     if(type === 'close'){
                         var dlg = dialogs.confirm('Confirm','Are you sure that you want to finish the project?');

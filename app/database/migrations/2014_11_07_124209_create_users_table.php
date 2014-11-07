@@ -20,7 +20,8 @@ class CreateUsersTable extends Migration {
             $table->string('code',60);
             $table->string('firstName',30);
             $table->string('lastName',30);
-            $table->string('email',30);
+            $table->string('email')->unique();
+            $table->string('photo');
             $table->integer('access'); //
             $table->timestamps();
             $table->text('remember_token');
@@ -35,7 +36,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('users');
+		Schema::drop('users');
 	}
 
 }

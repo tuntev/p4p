@@ -59,6 +59,15 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
         });
     };
 
+    $scope.selected = function(){
+        var count = 0;
+
+        angular.forEach($scope.projects, function(project){
+            count += project.selected ? 0 : 1;
+        });
+        return count;
+    }
+
     // handle dialogs
         $scope.launch = function(which, type, pId){
             switch(which){
@@ -78,12 +87,14 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
                     break;
                 case 'confirm':
                     if(type === 'delete'){
-                        var dlg = dialogs.confirm('Confirm','Are you sure that you want to delete the selected projects?');
-                        dlg.result.then(function(btn){
-                            $scope.removeChecked();
-                        },function(btn){
+                        if($scope.selected() !== $scope.projects.length){
+                            var dlg = dialogs.confirm('Confirm','Are you sure that you want to delete the selected projects?');
+                            dlg.result.then(function(btn){
+                                $scope.removeChecked();
+                            },function(btn){
 
-                        });
+                            });
+                        }
                     }
                     if(type === 'close'){
                         var dlg = dialogs.confirm('Confirm','Are you sure that you want to finish the project?');
@@ -197,8 +208,22 @@ app.controller('TodoController', ['$http', '$scope', 'GetTodos','TabService', fu
     }
 }]);
 
-app.controller('DemoController', ['TabService', function(TabService){
+app.controller('DemoController', ['TabService','$scope','$http', function(TabService, $scope, $http){
 
     TabService.setTab(4);
+
+    $scope.drawResult = function(text){
+        if(text.length > 1){
+            $http.get('javascripts/data.json').success(function(data){
+                $scope.data = data;
+
+            });
+        } else {
+            $scope.data = {};
+        }
+    };
+    $scope.showContent = function(id){
+        $scope.id = id;
+    }
 
 }]);

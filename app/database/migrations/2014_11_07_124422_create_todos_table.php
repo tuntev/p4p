@@ -10,25 +10,25 @@ class CreateTodosTable extends Migration {
 	 *
 	 * @return void
 	 */
-	public function up()
-	{
-        Schema::create('todos', function($table){
+    public function up()
+    {
+        Schema::create('todos', function(Blueprint $table){
             $table->increments('id');
             $table->string('text',255);
             $table->boolean('done');
             $table->timestamps();
 
         });
-	}
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-        Schema::drop('users');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('todos');
+    }
 
 }

@@ -23,46 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="projects.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/templates/projects.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="48" selection-start="1117" selection-end="1117" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1207">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/partials/footer.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="995" selection-end="995" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="476">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="head.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/partials/head.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="460" selection-end="460" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="357">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/styles/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="1" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2533">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navigation.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="navigation.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/partials/navigation.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="728" selection-end="728" vertical-scroll-proportion="0.4324853" vertical-offset="0" max-vertical-offset="1377">
+            <state line="51" column="19" selection-start="2553" selection-end="2849" vertical-scroll-proportion="-13.076923" vertical-offset="527" max-vertical-offset="1377">
               <folding />
             </state>
           </provider>
@@ -71,16 +35,7 @@
       <file leaf-file-name="GruntFile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/GruntFile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="52" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="28" selection-start="284" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1309">
+            <state line="49" column="7" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.0" vertical-offset="568" max-vertical-offset="1139">
               <folding />
             </state>
           </provider>
@@ -89,7 +44,16 @@
       <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="26" selection-start="1665" selection-end="1665" vertical-scroll-proportion="0.0" vertical-offset="959" max-vertical-offset="3553">
+            <state line="215" column="28" selection-start="6759" selection-end="6759" vertical-scroll-proportion="0.0" vertical-offset="3420" max-vertical-offset="3978">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="oauth-4-laravel.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/oauth-4-laravel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="10" selection-start="583" selection-end="583" vertical-scroll-proportion="-16.23077" vertical-offset="20" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
@@ -98,16 +62,36 @@
       <file leaf-file-name="Prog4Controller.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Prog4Controller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1394">
+            <state line="30" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="-0.0" vertical-offset="510" max-vertical-offset="1394">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
+      <file leaf-file-name="login.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="7" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="799">
+            <state line="39" column="58" selection-start="1691" selection-end="1691" vertical-scroll-proportion="-13.730769" vertical-offset="306" max-vertical-offset="1037">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FacebookController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/FacebookController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="5" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.96755725" vertical-offset="615" max-vertical-offset="1241">
+              <folding>
+                <element signature="e#6#86#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserTableSeeder.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/database/seeds/UserTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="38" selection-start="388" selection-end="388" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
@@ -123,22 +107,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/templates/home.html" />
-        <option value="$PROJECT_DIR$/app/views/Prog4/index.blade.php" />
-        <option value="$PROJECT_DIR$/public/javascripts/services.js" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/controllers/Prog4Controller.php" />
-        <option value="$PROJECT_DIR$/public/templates/project_details.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/controllers.js" />
-        <option value="$PROJECT_DIR$/public/templates/projects.html" />
-        <option value="$PROJECT_DIR$/public/package.json" />
-        <option value="$PROJECT_DIR$/public/GruntFile.js" />
-        <option value="$PROJECT_DIR$/app/views/partials/footer.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/partials/head.blade.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_11_07_122822_create_profiles_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_11_07_124422_create_todos_table.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_11_07_124457_create_p4projects_table.php" />
         <option value="$PROJECT_DIR$/app/views/login.blade.php" />
-        <option value="$PROJECT_DIR$/public/styles/main.css" />
-        <option value="$PROJECT_DIR$/app/views/partials/navigation.blade.php" />
+        <option value="$PROJECT_DIR$/app/models/User.php" />
+        <option value="$PROJECT_DIR$/app/models/Profile.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_11_07_124545_create_profiles_table.php" />
+        <option value="$PROJECT_DIR$/app/config/facebook.php" />
+        <option value="$PROJECT_DIR$/public/javascripts/controllers.js" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/app/config/app.php" />
+        <option value="$PROJECT_DIR$/app/config/oauth-4-laravel.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2014_11_07_124209_create_users_table.php" />
+        <option value="$PROJECT_DIR$/app/controllers/FacebookController.php" />
+        <option value="$PROJECT_DIR$/app/database/seeds/UserTableSeeder.php" />
       </list>
     </option>
   </component>
@@ -320,28 +304,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Prog4Projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Prog4Projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -360,7 +322,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -378,11 +340,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Prog4" />
+              <option name="myItemId" value="seeds" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,11 +362,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="partials" />
+              <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -426,63 +388,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Prog4Projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Prog4Projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Prog4Projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Prog4Projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="local" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Laravel_Angular" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../facebook-login" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PHP_proekti\Prog4Projects\public\javascripts" />
       <recent name="D:\PHP_proekti\Prog4Projects\public\javascripts\dev" />
       <recent name="D:\PHP_proekti\Prog4Projects\public\javascripts\lib\jquery" />
       <recent name="D:\PHP_proekti\Prog4Projects\public\javascripts\lib" />
       <recent name="D:\PHP_proekti\Prog4Projects\app\config" />
-      <recent name="D:\PHP_proekti\Prog4Projects\app\views\emails\auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\PHP_proekti\Prog4Projects\public\javascripts\lib\bootstrap" />
@@ -516,7 +438,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -525,7 +447,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2659091" sideWeight="0.67001677" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27954546" sideWeight="0.67001677" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -553,116 +475,117 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/templates/project_details.html">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_11_07_124422_create_todos_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="189" selection-end="189" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="204" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="7" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="799">
+        <state line="30" column="30" selection-start="592" selection-end="592" vertical-scroll-proportion="-18.192308" vertical-offset="20" max-vertical-offset="663">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/lib/underscore/underscore-min.map">
+    <entry file="file://$PROJECT_DIR$/app/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="537">
+        <state line="28" column="5" selection-start="613" selection-end="613" vertical-scroll-proportion="0.8110687" vertical-offset="0" max-vertical-offset="561">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/lib/jquery/jquery.min.map">
+    <entry file="file://$PROJECT_DIR$/app/models/P4Project.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="537">
+        <state line="10" column="28" selection-start="163" selection-end="187" vertical-scroll-proportion="0.3244275" vertical-offset="0" max-vertical-offset="524">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/templates/projects.html">
+    <entry file="file://$PROJECT_DIR$/app/models/Profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="48" selection-start="1117" selection-end="1117" vertical-scroll-proportion="-13.730769" vertical-offset="0" max-vertical-offset="1207">
+        <state line="9" column="28" selection-start="149" selection-end="149" vertical-scroll-proportion="0.29198474" vertical-offset="0" max-vertical-offset="524">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/package.json">
+    <entry file="file://$PROJECT_DIR$/app/config/facebook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.519084" vertical-offset="0" max-vertical-offset="524">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/dev/underscore-min.map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="32" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="537">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/dev/angular-sanitize.min.js.map">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="512">
+        <state line="5" column="2" selection-start="109" selection-end="109" vertical-scroll-proportion="0.16221374" vertical-offset="0" max-vertical-offset="524">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="26" selection-start="1665" selection-end="1665" vertical-scroll-proportion="0.0" vertical-offset="959" max-vertical-offset="3553">
+        <state line="215" column="28" selection-start="6759" selection-end="6759" vertical-scroll-proportion="0.0" vertical-offset="3420" max-vertical-offset="3978">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/GruntFile.js">
+    <entry file="file://$PROJECT_DIR$/app/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="52" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+        <state line="189" column="21" selection-start="7410" selection-end="7410" vertical-scroll-proportion="0.610687" vertical-offset="2893" max-vertical-offset="3434">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/footer.blade.php">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="995" selection-end="995" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="476">
+        <state line="7" column="48" selection-start="224" selection-end="224" vertical-scroll-proportion="0.22709924" vertical-offset="0" max-vertical-offset="731">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/login.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/controllers/Prog4Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.129771" vertical-offset="0" max-vertical-offset="1020">
+        <state line="30" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1394">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/head.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/config/oauth-4-laravel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="460" selection-end="460" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="357">
+        <state line="26" column="10" selection-start="583" selection-end="583" vertical-scroll-proportion="-16.23077" vertical-offset="20" max-vertical-offset="612">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/main.css">
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_11_07_124545_create_profiles_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="1" selection-start="35" selection-end="35" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2533">
+        <state line="23" column="33" selection-start="639" selection-end="639" vertical-scroll-proportion="-10.846154" vertical-offset="92" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_11_07_124209_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="41" selection-start="693" selection-end="693" vertical-scroll-proportion="0.35687023" vertical-offset="204" max-vertical-offset="799">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="0" selection-start="3306" selection-end="3306" vertical-scroll-proportion="0.0" vertical-offset="2346" max-vertical-offset="3128">
+        <state line="17" column="0" selection-start="518" selection-end="518" vertical-scroll-proportion="0.24954128" vertical-offset="0" max-vertical-offset="3060">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/navigation.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="728" selection-end="728" vertical-scroll-proportion="0.4324853" vertical-offset="0" max-vertical-offset="1377">
+        <state line="39" column="58" selection-start="1691" selection-end="1691" vertical-scroll-proportion="-13.730769" vertical-offset="306" max-vertical-offset="1037">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/seeds/UserTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="38" selection-start="388" selection-end="388" vertical-scroll-proportion="-9.153846" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/FacebookController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="5" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.96755725" vertical-offset="615" max-vertical-offset="1241">
+          <folding>
+            <element signature="e#6#86#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

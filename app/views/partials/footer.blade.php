@@ -10,8 +10,7 @@
 <!--<script src="{{ asset('javascripts/lib/bootstrap/ui-bootstrap-tpls-0.11.2.min.js') }}"></script>-->
 <!--<script src="{{ asset('javascripts/lib/dialogs/dialogs.min.js') }}"></script>-->
 
-<!--<script src="{{ asset('javascripts/dev/prod.js') }}"></script>-->
-
+<!--<script src="{{ asset('javascripts/dev/prod.min.js') }}"></script>-->
 <script src="{{ asset('javascripts/app.js') }}"></script>
 <script src="{{ asset('javascripts/controllers.js') }}"></script>
 <script src="{{ asset('javascripts/services.js') }}"></script>

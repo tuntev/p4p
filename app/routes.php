@@ -10,6 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+// facebook login
+Route::get('login/fb', array(
+    'as'=>'login-fb',
+    'uses'=>'FacebookController@loginWithFacebook'
+));
 
 // Unathenticated group
 

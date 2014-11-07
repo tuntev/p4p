@@ -37,6 +37,7 @@
         <div class="form-group">
             <div class="col-sm-offset-5 col-sm-10">
                 <button type="submit" class="btn btn-primary">Log in</button>
+                <a href="login/fb">Login with Facebook</a>
             </div>
         </div>
         {{ Form::token() }}
