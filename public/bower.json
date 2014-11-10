@@ -1,0 +1,20 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tuntev/p4p",
+  "authors": [
+    "Naum Tuntev <tuntev@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "bootstrap-social": "~4.8.0",
+    "angular-dialog-service": "~5.2.5",
+    "angular": "1.2.26",
+    "underscore": "~1.7.0",
+    "angular-route": "1.2.26"
+  }
+}

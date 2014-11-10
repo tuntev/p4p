@@ -3,7 +3,7 @@
 @stop
 @section('content')
 @include('partials.navigation')
-<div class="row" ng-app="app">
+<div class="row" ng-app="app" ng-init="access={{ Auth::user()->access }}">
     <ul class="nav nav-tabs" role="tablist" id="tabs">
         <li id="ng-tab1" role="presentation" class="active"><a href="#/home">Home</a></li>
         <li id="ng-tab2" role="presentation"><a href="#/projects">Projects</a></li>

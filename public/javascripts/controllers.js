@@ -216,8 +216,8 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
         if(text.length > 1){
             $http.get('javascripts/data.json').success(function(data){
                 $scope.data = data;
-
             });
+
         } else {
             $scope.data = {};
         }

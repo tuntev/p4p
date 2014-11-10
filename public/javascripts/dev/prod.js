@@ -250,9 +250,23 @@ app.controller('TodoController', ['$http', '$scope', 'GetTodos','TabService', fu
     }
 }]);
 
-app.controller('DemoController', ['TabService', function(TabService){
+app.controller('DemoController', ['TabService','$scope','$http', function(TabService, $scope, $http){
 
     TabService.setTab(4);
+
+    $scope.drawResult = function(text){
+        if(text.length > 1){
+            $http.get('javascripts/data.json').success(function(data){
+                $scope.data = data;
+            });
+
+        } else {
+            $scope.data = {};
+        }
+    };
+    $scope.showContent = function(id){
+        $scope.id = id;
+    }
 
 }]);
 /**

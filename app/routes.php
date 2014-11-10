@@ -93,21 +93,14 @@ Route::group(array('before'=>'auth'), function(){
         'uses'=>'UsersController@getEdit'
     ));
 
-
     // access level 5 (admin)
 
-    Route::group(['before' => 'admin'], function(){
-
-        Route::get('/users', array(
-            'as'=>'users',
-            'uses'=>'UsersController@getUsers'
-        ));
+    Route::group(['before' => 'staff'], function(){
 
         Route::get('/user/createNew', array(
             'as'=>'account-create-new',
             'uses'=>'UsersController@getCreate'
         ));
-
 
         // TODOS:
         Route::get('/todo', array(
@@ -119,16 +112,6 @@ Route::group(array('before'=>'auth'), function(){
         Route::get('/todos', function(){
             return Todo::all();
         });
-
-        // change done
-        Route::put('/todos/update/{id}', array(
-            'uses'=>'TodosController@update'
-        ));
-
-        // DELETE todo
-        Route::delete('/todos/delete/{id}', array(
-            'uses'=>'TodosController@getDeleteTodo'
-        ));
 
         Route::group(['prefix' => 'p4projects'], function(){
 
@@ -142,16 +125,6 @@ Route::group(array('before'=>'auth'), function(){
                 'uses'=>'Prog4Controller@getProjectById'
             ));
 
-            // change DONE
-            Route::put('/update/{id}', array(
-                'uses'=>'Prog4Controller@updateDone'
-            ));
-
-            // DELETE project
-            Route::delete('/delete/{id}', array(
-                'uses'=>'Prog4Controller@getDeleteProject'
-            ));
-
         });
         // PROJECTS:
         Route::get('/prog4', array(
@@ -159,6 +132,35 @@ Route::group(array('before'=>'auth'), function(){
             'uses'=>'Prog4Controller@index'
         ));
 
+
+    });
+
+    Route::group(['before' => 'admin'], function(){
+
+        Route::get('/users', array(
+            'as'=>'users',
+            'uses'=>'UsersController@getUsers'
+        ));
+
+        // change done
+        Route::put('/todos/update/{id}', array(
+            'uses'=>'TodosController@update'
+        ));
+
+        // DELETE todo
+        Route::delete('/todos/delete/{id}', array(
+            'uses'=>'TodosController@getDeleteTodo'
+        ));
+
+        // change DONE
+        Route::put('p4projects/update/{id}', array(
+            'uses'=>'Prog4Controller@updateDone'
+        ));
+
+        // DELETE project
+        Route::delete('p4projects/delete/{id}', array(
+            'uses'=>'Prog4Controller@getDeleteProject'
+        ));
 
     });
 

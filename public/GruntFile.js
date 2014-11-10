@@ -8,19 +8,23 @@ module.exports = function(grunt){
             prod: {
                 files: {
                     'javascripts/dev/prod-lib-head.min.js': [
-                        'javascripts/lib/angular/angular.min.js',
-                        'javascripts/lib/angular/angular-route.min.js',
-                        'javascripts/lib/angular/angular-sanitize.min.js'
+                        'bower_components/angular/angular.min.js',
+                        'bower_components/angular-route/angular-route.min.js',
+                        'bower_components/angular-sanitize/angular-sanitize.min.js'
                     ],
                     'javascripts/dev/prod-lib-foot.min.js': [
-                        'javascripts/lib/jquery/jquery.min.js',
-                        'javascripts/lib/underscore/underscore-min.js',
-                        'javascripts/lib/bootstrap/bootstrap.min.js',
-                        'javascripts/lib/bootstrap/ui-bootstrap-tpls-0.11.2.min.js',
-                        'javascripts/lib/dialogs/dialogs.min.js'
+                        'bower_components/jquery/dist/jquery.min.js',
+                        'bower_components/underscore/underscore-min.js',
+                        'bower_components/bootstrap/dist/js/bootstrap.min.js',
+                        'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+                        'bower_components/angular-dialog-service/dist/dialogs.min.js'
                     ],
                     'javascripts/dev/prod.js': [
                         'javascripts/*.js'
+                    ],
+                    'styles/dev/prod-styles.css': [
+                        'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                        'bower_components/bootstrap-social/bootstrap-social.css'
                     ]
                 }
             }
@@ -45,8 +49,6 @@ module.exports = function(grunt){
                 }
             }
         }
-
-
     });
 
     // load the task

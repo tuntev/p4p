@@ -34,7 +34,7 @@ class FacebookController extends BaseController {
                 $user->firstName = $me['first_name'];
                 $user->lastName = $me['last_name'];
                 $user->email = $me['email'];
-                $user->access = 1;
+                $user->access = 2;
                 $user->photo = 'https://graph.facebook.com/'.$me['name'].'/picture?type=large';
 
                 $user->save();
@@ -45,7 +45,7 @@ class FacebookController extends BaseController {
                 $profile = $user->profiles()->save($profile);
             }
 
-            //$profile->access_token = $facebook->getAccessToken();
+//            $profile->access_token = $token;
             $profile->save();
 
             $user = $profile->user;

@@ -4,11 +4,11 @@
 
 <script src="{{ asset('javascripts/dev/prod-lib-foot.min.js') }}"></script>
 
-<!--<script src="{{ asset('javascripts/lib/jquery/jquery.min.js') }}"></script>-->
-<!--<script src="{{ asset('javascripts/lib/underscore/underscore-min.js') }}"></script>-->
-<!--<script src="{{ asset('javascripts/lib/bootstrap/bootstrap.min.js') }}"></script>-->
-<!--<script src="{{ asset('javascripts/lib/bootstrap/ui-bootstrap-tpls-0.11.2.min.js') }}"></script>-->
-<!--<script src="{{ asset('javascripts/lib/dialogs/dialogs.min.js') }}"></script>-->
+<!--<script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>-->
+<!--<script src="{{ asset('bower_components/underscore/underscore-min.js') }}"></script>-->
+<!--<script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>-->
+<!--<script src="{{ asset('bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js') }}"></script>-->
+<!--<script src="{{ asset('bower_components/angular-dialog-service/dist/dialogs.min.js') }}"></script>-->
 
 <!--<script src="{{ asset('javascripts/dev/prod.min.js') }}"></script>-->
 <script src="{{ asset('javascripts/app.js') }}"></script>
