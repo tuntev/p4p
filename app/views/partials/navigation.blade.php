@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-
+                @if(Auth::user()->access > 1)
                 <li id="coursesNav" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -28,6 +28,7 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
+                @endif
                 @if(Auth::user()->access == 5)
                 <li id="adminNav" class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<span class="caret"></span></a>
@@ -53,7 +54,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="{{ URL::action('account-edit') }}">
-                        {{Auth::user()->firstName}} {{Auth::user()->lastName}}</a></li>
+                        {{Auth::user()->email}}</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -68,7 +69,6 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
 @include('partials.errorMsg')
 @include('partials.infoMsg')
 

@@ -14,8 +14,19 @@ $(document).ready(function(){
             $('#coursesNav').addClass('active');
             break;
         case '/Prog4Projects/public/users':
+        case '/Prog4Projects/public/user/createNew':
             $('#adminNav').addClass('active');
             break;
     };
+
+    $('.jsDelete').click(function(e){
+        e.stopPropagation();
+
+        var r = confirm("Are you sure");
+        if (r == false){
+            e.preventDefault();
+            return;
+        }
+    });
 
 });

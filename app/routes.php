@@ -38,10 +38,17 @@ Route::group(array('before'=>'guest'), function(){
         'uses'=>'HomeController@postLogin'
     ))->before('csrf');
 
+    // Create new user GET
     Route::get('/user/create', array(
         'as'=>'account-create',
         'uses'=>'UsersController@getCreate'
     ));
+
+    // Create new user POST
+    Route::post('/user/create', array(
+        'as'=>'account-create-post',
+        'uses'=>'UsersController@postCreate'
+    ))->before('csrf');
 
     // Recover password GET
     Route::get('/user/forgot', array(
@@ -137,9 +144,25 @@ Route::group(array('before'=>'auth'), function(){
 
     Route::group(['before' => 'admin'], function(){
 
+        Route::group(['before' => 'csrf'], function(){
+
+            // POST new user for admin
+            Route::post('/user/createAuth', array(
+                'as'=>'account-create-post-auth',
+                'uses'=>'UsersController@postCreate'
+            ));
+
+        });
+        // get all users
         Route::get('/users', array(
             'as'=>'users',
             'uses'=>'UsersController@getUsers'
+        ));
+
+        // delete user
+        Route::get('/user/delete/{id}', array(
+            'as'=>'delete-user',
+            'uses'=>'UsersController@getDelete'
         ));
 
         // change done

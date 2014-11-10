@@ -14,10 +14,11 @@
         </div>
     </div>
 
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-responsive">
         <thead>
         <tr>
-            <th class="text-center" style="width: 20%">Name</th>
+            <th class="text-center" style="width: 5%"></th>
+            <th class="text-center" style="width: 15%">Name</th>
             <th class="text-center" style="width: 20%">Last Name</th>
             <th class="text-center" style="width: 15%">Username</th>
             <th class="text-center" style="width: 20%">e-mail</th>
@@ -27,14 +28,15 @@
         </thead>
         <tbody>
         @foreach($users as $user)
-        <tr>
+        <tr >
+            <td {{$user->facebook == 1 ? 'class="fbColor"' : ''}}></td>
             <td>{{ e($user->firstName) }}</td>
             <td>{{ e($user->lastName) }}</td>
             <td>{{ e($user->username) }}</td>
             <td>{{ e($user->email) }}</td>
             <td>{{ e($user->access) }}</td>
             <td><a href="" class="glyphicon glyphicon-pencil"></a></td>
-            <td><a href="" class="jsDelete glyphicon glyphicon-trash"></a></td>
+            <td><a href="{{URL::action('delete-user',$user->id)}}" class="jsDelete glyphicon glyphicon-trash"></a></td>
         </tr>
         @endforeach
         </tbody>

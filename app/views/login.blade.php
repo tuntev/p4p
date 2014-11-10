@@ -5,12 +5,12 @@
 @include('partials.companyInfo')
 @include('partials.errorMsg')
 @include('partials.infoMsg')
-<div class="loginForm">
+<div class="loginForm" ng-app>
     <form action="{{ URL::route('login-post') }}" method="post" class="form-horizontal" role="form">
         <div class="form-group">
             <label for="inputUser" class="col-md-offset-2 col-md-3 control-label">Username</label>
             <div class="col-md-3">
-                <input type="text" name="username" class="form-control" id="inputUser" placeholder="Username">
+                <input required type="text" name="username" class="form-control" id="inputUser" placeholder="Username">
             </div>
             @if($errors->has('username'))
                 {{ $errors->first('username') }}
@@ -19,7 +19,7 @@
         <div class="form-group">
             <label for="inputPassword" class="col-md-offset-2 col-md-3 control-label">Password</label>
             <div class="col-md-3">
-                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input required type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
             </div>
             @if($errors->has('password'))
             {{ $errors->first('password') }}
@@ -44,12 +44,11 @@
         </div>
         {{ Form::token() }}
     </form>
-    <div class="row">
-        <div class="col-md-6 text-right">
-            <a href="{{ URL::action('account-create') }}">Create an account</a>
-        </div>
-        <div class="col-md-6">
-            <a href="{{ URL::action('account-forgot') }}">Forgot password</a>
+    <div class="row text-center">
+        <a href="{{ URL::action('account-create') }}">Create an account</a>&nbsp;&nbsp;&nbsp;
+        <a href="{{ URL::action('account-forgot') }}">Forgot password</a>
+
+
         </div>
     </div>
 </div>

@@ -1,6 +1,23 @@
 /**
  * Created by tunte on 11/3/14.
  */
+var createAccountApp = angular.module('createAccount',['ngRoute','ngSanitize'],['$interpolateProvider', function($interpolateProvider) {
+    $interpolateProvider.startSymbol('<%');
+    $interpolateProvider.endSymbol('%>');
+}]);
+
+createAccountApp.config(['$routeProvider', function($routeProvider){
+
+//    $routeProvider.when('/', {
+//        templateUrl: 'create.html',
+//        controller: 'CreateAccountController'
+//    });
+//
+//    $routeProvider.otherwise({
+//        redirectTo: '/'
+//    });
+}]);
+
 var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main'], ['$interpolateProvider', function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');

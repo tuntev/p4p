@@ -12,6 +12,7 @@ class UserTableSeeder extends Seeder{
                 'password'=>Hash::make('123'),
                 'firstName'=>'Наум',
                 'lastName'=>'Тунтев',
+                'facebook'=> false,
                 'email'=>'tuntev@yahoo.com',
                 'access'=>5,
                 'created_at' => $now,

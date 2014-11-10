@@ -15,7 +15,9 @@
 <script src="{{ asset('javascripts/controllers.js') }}"></script>
 <script src="{{ asset('javascripts/services.js') }}"></script>
 <script src="{{ asset('javascripts/directives.js') }}"></script>
-<script src="{{ URL::asset('javascripts/custom.js') }}"></script>
+<script src="{{ asset('javascripts/custom.js') }}"></script>
+
+<script src="{{ asset('javascripts/createAccount/controllers.js') }}"></script>
 
 </body>
 </html>

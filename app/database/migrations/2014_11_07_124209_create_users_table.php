@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration {
             $table->string('password',60);
             $table->string('password_temp',60);
             $table->string('code',60);
+            $table->boolean('facebook');
             $table->string('firstName',30);
             $table->string('lastName',30);
             $table->string('email')->unique();

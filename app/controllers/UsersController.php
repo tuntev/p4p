@@ -20,6 +20,74 @@ class UsersController extends BaseController {
 
     }
 
+    public function postCreate(){
+
+        $validator = Validator::make(Input::all(),
+            array(
+                'email'             =>'required|email|unique:users',
+                'username'          =>'required|max:20|min:5|unique:users',
+                'password'          =>'required|min:6',
+                'password_c'        =>'required|same:password'
+            )
+        );
+
+        if($validator->fails()){
+            return Redirect::route('account-create')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+
+            $email = Input::get('email');
+            $username = Input::get('username');
+            $password = Input::get('password');
+            $access = Input::get('access') ? Input::get('access') : 2;
+
+            $user = User::create(array(
+                'email'=>$email,
+                'username'=>$username,
+                'password'=>Hash::make($password),
+                'access'=>$access,
+                'facebook'=>false
+            ));
+
+            if($user){
+
+                if(Auth::check()){
+                    return Redirect::route('users')
+                        ->with('success','User created');
+                }
+
+                return Redirect::route('login')
+                    ->with('success','Your account has been created. You can log in now.');
+
+            }else{
+                return Redirect::route('login')
+                    ->with('global','Error while creating the account');
+
+            }
+        }
+    }
+
+    public function getDelete($id){
+
+        $user = User::where('id',$id)->first();
+
+        if(empty($user)){
+            return Redirect::route('users')
+                ->with('global','Бараниот корисник не постои.');
+        }
+
+        if(Auth::user()->access < 5){
+            return Redirect::route('main')
+                ->with('global','Немате привилегии за бараната страна.');
+        }
+
+        $user->delete();
+        return Redirect::back()
+            ->with('success','Корисникот е избришан.');
+
+    }
+
     public function getRecovery(){
 
         return View::make('users.forgot');
