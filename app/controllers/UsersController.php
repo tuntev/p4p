@@ -47,7 +47,7 @@ class UsersController extends BaseController {
                 'username'=>$username,
                 'password'=>Hash::make($password),
                 'access'=>$access,
-                'facebook'=>false
+                'type'=>'system'
             ));
 
             if($user){

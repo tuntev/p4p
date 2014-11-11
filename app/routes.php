@@ -13,11 +13,15 @@
 // facebook login
 Route::get('login/fb', array(
     'as'=>'login-fb',
-    'uses'=>'FacebookController@loginWithFacebook'
+    'uses'=>'LoginController@loginWithFacebook'
+));
+
+Route::get('login/google', array(
+    'as'=>'login-google',
+    'uses'=>'LoginController@loginWithGoogle'
 ));
 
 // Unathenticated group
-
 
 Route::group(array('before'=>'guest'), function(){
 

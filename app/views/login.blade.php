@@ -35,11 +35,15 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-offset-5 col-md-10">
+            <div class="col-md-offset-5 col-md-7">
                 <button type="submit" class="btn btn-primary">Log in</button>
-                <a href="login/fb" class="btn btn-social btn-facebook">
-                    <i class="fa fa-facebook"></i> Sign in with Facebook
+                <a href="login/fb" class="btn btn-social-icon btn-facebook">
+                    <i class="fa fa-facebook"></i>
                 </a>
+                <a href="login/google" class="btn btn-social-icon btn-google-plus">
+                    <i class="fa fa-google"></i>
+                </a>
+
             </div>
         </div>
         {{ Form::token() }}
@@ -47,9 +51,6 @@
     <div class="row text-center">
         <a href="{{ URL::action('account-create') }}">Create an account</a>&nbsp;&nbsp;&nbsp;
         <a href="{{ URL::action('account-forgot') }}">Forgot password</a>
-
-
-        </div>
     </div>
 </div>
 @stop

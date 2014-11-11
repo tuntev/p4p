@@ -26,6 +26,12 @@ return array(
             'scope'         => array('email'),
         ),
 
+        'Google' => array(
+            'client_id'     => '196849152053-5uv7q5vkhjkt7bqclbd2ftng1b91fbg6.apps.googleusercontent.com',
+            'client_secret' => 'miRAGJIsnZ6mwGIcQk5t1h9d',
+            'scope'         => array('userinfo_email', 'userinfo_profile'),
+        ),
+
     )
 
 );
