@@ -1,5 +1,8 @@
 <?php
 
+// REST P4P - test - without user access
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -108,6 +111,12 @@ Route::group(array('before'=>'auth'), function(){
 
     Route::group(['before' => 'staff'], function(){
 
+        Route::group(['prefix' => 'api'], function(){
+
+            Route::resource('p4p', 'P4PController');
+
+        });
+
         Route::get('/user/createNew', array(
             'as'=>'account-create-new',
             'uses'=>'UsersController@getCreate'
@@ -124,25 +133,12 @@ Route::group(array('before'=>'auth'), function(){
             return Todo::all();
         });
 
-        Route::group(['prefix' => 'p4projects'], function(){
 
-            // get projects
-            Route::get('/', array(
-                'uses'=>'Prog4Controller@getProjects'
-            ));
-
-            // get project by ID
-            Route::get('/{id}', array(
-                'uses'=>'Prog4Controller@getProjectById'
-            ));
-
-        });
         // PROJECTS:
         Route::get('/prog4', array(
             'as'=>'prog4',
-            'uses'=>'Prog4Controller@index'
+            'uses'=>'P4PController@getP4Pindex'
         ));
-
 
     });
 
@@ -179,19 +175,7 @@ Route::group(array('before'=>'auth'), function(){
             'uses'=>'TodosController@getDeleteTodo'
         ));
 
-        // change DONE
-        Route::put('p4projects/update/{id}', array(
-            'uses'=>'Prog4Controller@updateDone'
-        ));
-
-        // DELETE project
-        Route::delete('p4projects/delete/{id}', array(
-            'uses'=>'Prog4Controller@getDeleteProject'
-        ));
-
     });
-
-
 
     // AJAX requests with csrf token
     Route::group(['before' => 'csrf_json'], function(){
@@ -204,10 +188,6 @@ Route::group(array('before'=>'auth'), function(){
             ));
         });
 
-        // insert new P4Project
-        Route::post('/p4projects', array(
-            'uses'=>'Prog4Controller@postAddNew'
-        ));
     });
 
 });

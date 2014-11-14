@@ -15,14 +15,14 @@ app.service('ProjectsService', ['$http','$sanitize', function($http, $sanitize){
 
     return {
         getProjects: function() {
-            return $http.get('p4projects').then(function(result) {
+            return $http.get('api/p4p').then(function(result) {
                 return result.data;
             });
         },
 
         updateDone: function(id, done){
 
-            return $http.put('p4projects/update/' + id, { done: done } ).success(function(data, status) {
+            return $http.put('api/p4p/' + id, { done: done } ).success(function(data, status) {
                 if(data) {
                     return data;
                 }
@@ -41,19 +41,19 @@ app.service('ProjectsService', ['$http','$sanitize', function($http, $sanitize){
         },
 
         addNew: function(input){
-            return $http.post('p4projects', input).then(function(result) {
+            return $http.post('api/p4p', input).then(function(result) {
                 return result.data;
             });
         },
 
         delete: function(id){
-            return $http.delete('p4projects/delete/' + id).error(function(data, status) {
+            return $http.delete('api/p4p/' + id).error(function(data, status) {
                 console.log(status);
             });
         },
 
         getProjectById: function(id){
-            return $http.get('p4projects/' + id).then(function(result) {
+            return $http.get('api/p4p/' + id).then(function(result) {
                 return result.data;
             });
         }
