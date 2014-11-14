@@ -1,27 +1,38 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tunte
- * Date: 10/30/14
- * Time: 5:00 PM
- */
 
-class UsersController extends BaseController {
+class UserController extends \BaseController {
 
-    public function getUsers() {
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
         $users = User::orderBy('id', 'asc')->paginate(5);
 
         return View::make('users.users')->with('users',$users);
-    }
+	}
 
-    public function getCreate(){
 
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
         return View::make('users.create');
+	}
 
-    }
 
-    public function postCreate(){
-
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
         $validator = Validator::make(Input::all(),
             array(
                 'email'             =>'required|email|unique:users',
@@ -66,10 +77,60 @@ class UsersController extends BaseController {
 
             }
         }
-    }
+	}
 
-    public function getDelete($id){
 
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+        $user = User::find($id);
+        if($user && $user->id == Auth::user()->id){
+            return View::make('users.show');
+        }
+        else{
+            return Redirect::route('main')
+                ->with('global','Забранет пристап.');
+        }
+	}
+
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+        return View::make('users.edit');
+	}
+
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		//
+	}
+
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
         $user = User::where('id',$id)->first();
 
         if(empty($user)){
@@ -85,18 +146,11 @@ class UsersController extends BaseController {
         $user->delete();
         return Redirect::back()
             ->with('success','Корисникот е избришан.');
-
-    }
+	}
 
     public function getRecovery(){
 
         return View::make('users.forgot');
-
-    }
-
-    public function getEdit(){
-
-        return View::make('users.edit');
 
     }
 
@@ -173,7 +227,6 @@ class UsersController extends BaseController {
         return Redirect::route('login')
             ->with('global','Problem with recovery of password');
     }
-
 
 
 }

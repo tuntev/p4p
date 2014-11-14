@@ -15,6 +15,7 @@ app.service('ProjectsService', ['$http','$sanitize', function($http, $sanitize){
 
     return {
         getProjects: function() {
+
             return $http.get('api/p4p').then(function(result) {
                 return result.data;
             });

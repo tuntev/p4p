@@ -35,7 +35,7 @@
             <td>{{ e($user->username) }}</td>
             <td>{{ e($user->email) }}</td>
             <td>{{ e($user->access) }}</td>
-            <td><a href="" class="glyphicon glyphicon-pencil"></a></td>
+            <td><a href="{{URL::action('edit-user',$user->id)}}" class="glyphicon glyphicon-pencil"></a></td>
             <td><a href="{{URL::action('delete-user',$user->id)}}" class="jsDelete glyphicon glyphicon-trash"></a></td>
         </tr>
         @endforeach

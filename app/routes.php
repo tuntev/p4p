@@ -1,7 +1,11 @@
 <?php
 
 // REST P4P - test - without user access
-
+//Route::group(['prefix' => 'api'], function(){
+//
+//    Route::resource('p4p', 'P4PController');
+//
+//});
 
 /*
 |--------------------------------------------------------------------------
@@ -45,35 +49,40 @@ Route::group(array('before'=>'guest'), function(){
         'uses'=>'HomeController@postLogin'
     ))->before('csrf');
 
-    // Create new user GET
-    Route::get('/user/create', array(
-        'as'=>'account-create',
-        'uses'=>'UsersController@getCreate'
-    ));
+    Route::group(['prefix' => 'users'], function(){
 
-    // Create new user POST
-    Route::post('/user/create', array(
-        'as'=>'account-create-post',
-        'uses'=>'UsersController@postCreate'
-    ))->before('csrf');
+        // Create new user GET
+        Route::get('/create', array(
+            'as'=>'account-create',
+            'uses'=>'UserController@create'
+        ));
 
-    // Recover password GET
-    Route::get('/user/forgot', array(
-        'as'=>'account-forgot',
-        'uses'=>'UsersController@getRecovery'
-    ));
+        // Create new user POST
+        Route::post('/create', array(
+            'as'=>'account-create-post',
+            'uses'=>'UserController@store'
+        ))->before('csrf');
 
-    // Recover password POST
-    Route::post('/user/forget', array(
-        'as'=>'account-forgot-post',
-        'uses'=>'UsersController@postForgotPassword'
-    ))->before('csrf');
+        // Recover password GET
+        Route::get('/forgot', array(
+            'as'=>'account-forgot',
+            'uses'=>'UserController@getRecovery'
+        ));
 
-    // Recover password (GET)
-    Route::get('/user/recover/{code}', array(
-        'as'=>'account-recover',
-        'uses'=>'UsersController@getRecover'
-    ));
+        // Recover password POST
+        Route::post('/forget', array(
+            'as'=>'account-forgot-post',
+            'uses'=>'UserController@postForgotPassword'
+        ))->before('csrf');
+
+        // Recover password (GET)
+        Route::get('/recover/{code}', array(
+            'as'=>'account-recover',
+            'uses'=>'UserController@getRecover'
+        ));
+
+    });
+
 
 });
 
@@ -84,6 +93,13 @@ Route::group(array('before'=>'auth'), function(){
     Route::group(array('before'=>'csrf'), function(){
 
         // all csrf in authenticated group
+
+    });
+
+    // AJAX requests with csrf token
+    Route::group(['before' => 'csrf_json'], function(){
+
+
 
     });
 
@@ -102,25 +118,28 @@ Route::group(array('before'=>'auth'), function(){
     ));
 
     // Edit Account
-    Route::get('/editUser', array(
+    Route::get('/users/{id}', array(
         'as'=>'account-edit',
-        'uses'=>'UsersController@getEdit'
+        'uses'=>'UserController@show'
     ));
 
     // access level 5 (admin)
 
     Route::group(['before' => 'staff'], function(){
 
-        Route::group(['prefix' => 'api'], function(){
+        Route::group(['prefix' => 'api/p4p'], function(){
 
-            Route::resource('p4p', 'P4PController');
+            // get projects
+            Route::get('/', array(
+                'uses'=>'P4PController@index'
+            ));
+
+            // get project by ID
+            Route::get('/{id}', array(
+                'uses'=>'P4PController@show'
+            ));
 
         });
-
-        Route::get('/user/createNew', array(
-            'as'=>'account-create-new',
-            'uses'=>'UsersController@getCreate'
-        ));
 
         // TODOS:
         Route::get('/todo', array(
@@ -147,23 +166,55 @@ Route::group(array('before'=>'auth'), function(){
         Route::group(['before' => 'csrf'], function(){
 
             // POST new user for admin
-            Route::post('/user/createAuth', array(
+            Route::post('/users/createAuth', array(
                 'as'=>'account-create-post-auth',
-                'uses'=>'UsersController@postCreate'
+                'uses'=>'UserController@store'
             ));
 
         });
-        // get all users
-        Route::get('/users', array(
-            'as'=>'users',
-            'uses'=>'UsersController@getUsers'
+
+        Route::group(['prefix' => 'api/p4p'], function(){
+
+            // change DONE
+            Route::put('/{id}', array(
+                'uses'=>'P4PController@update'
+            ));
+
+            // DELETE project
+            Route::delete('/{id}', array(
+                'uses'=>'P4PController@destroy'
+            ));
+
+        });
+
+        Route::get('user/createNew', array(
+            'as'=>'account-create-new',
+            'uses'=>'UserController@create'
         ));
 
-        // delete user
-        Route::get('/user/delete/{id}', array(
-            'as'=>'delete-user',
-            'uses'=>'UsersController@getDelete'
-        ));
+        Route::group(['prefix' => 'users'], function(){
+
+            // get all users
+            Route::get('/', array(
+                'as'=>'users',
+                'uses'=>'UserController@index'
+            ));
+            // edit user
+            Route::get('/{id}/edit', array(
+                'as'=>'edit-user',
+                'uses'=>'UserController@edit'
+            ));
+
+            // delete user
+            Route::get('/delete/{id}', array(
+                'as'=>'delete-user',
+                'uses'=>'UserController@destroy'
+            ));
+
+
+
+        });
+
 
         // change done
         Route::put('/todos/update/{id}', array(
@@ -175,19 +226,22 @@ Route::group(array('before'=>'auth'), function(){
             'uses'=>'TodosController@getDeleteTodo'
         ));
 
-    });
+        Route::group(['before' => 'csrf_json'], function(){
 
-    // AJAX requests with csrf token
-    Route::group(['before' => 'csrf_json'], function(){
+            Route::post('/todos', function(){
+                return Todo::create(array(
+                    'text'=>Input::get('text'),
+                    'done'=>Input::get('done')
+                ));
+            });
 
-        // insert new todo
-        Route::post('/todos', function(){
-            return Todo::create(array(
-                'text'=>Input::get('text'),
-                'done'=>Input::get('done')
+            Route::post('api/p4p', array(
+                'uses'=>'P4PController@store'
             ));
+
         });
 
     });
 
 });
+

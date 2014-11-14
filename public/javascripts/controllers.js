@@ -40,7 +40,6 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
             ProjectsService.addNew(projectData).then(function(data){
                 projectData.id = data;
             });
-            // todo push to 0th position
             $scope.projects.unshift(projectData);
             $scope.data.title = '';
             $scope.data.student = '';

@@ -53,7 +53,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="{{ URL::action('account-edit') }}">
+                    <a href="{{ URL::action('account-edit', Auth::user()->id) }}">
                         {{Auth::user()->email}}</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></a>
