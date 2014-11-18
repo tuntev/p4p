@@ -278,7 +278,8 @@ app.controller('ChatController', ['TabService','$scope','UserService', function(
         });
     }
     else {
-        console.log('undefined');
+        $('.theMessage').attr("disabled","disabled");
+        $('.theMessage').attr('placeholder','Chat unavailable');
     }
 
     // most important: remove the listeners
