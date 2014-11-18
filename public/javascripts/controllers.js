@@ -15,6 +15,10 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
     // get all current project
     ProjectsService.getProjects().then(function(data) {
         $scope.projects = data;
+        var i;
+        for(i = 0; i < $scope.projects.length; i++){
+            $scope.projects[i].updated_at = $.timeago($scope.projects[i].updated_at);
+        }
     });
 
     // change DONE
@@ -22,6 +26,7 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
         var pId;
         ProjectsService.updateDone(id, done).then(function(data){
             pId = data.data;
+            $('#pID' + pId).find('.dateInfo').html($.timeago(new Date()));
             $('.cnfBtn_'+pId).hide();
         });
 
@@ -39,6 +44,7 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
 
             ProjectsService.addNew(projectData).then(function(data){
                 projectData.id = data;
+                projectData.updated_at = $.timeago(new Date());
             });
             $scope.projects.unshift(projectData);
             $scope.data.title = '';
@@ -133,6 +139,7 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
                 }
             },1000);
         }; // end _fakeWaitProgress
+
 }]);
 
 app.controller('ProjectDetailsController',['$scope','$routeParams','TabService','ProjectsService','$location',
@@ -225,5 +232,58 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
     $scope.showContent = function(id){
         $scope.id = id;
     }
+
+}]);
+
+app.controller('ChatController', ['TabService','$scope','UserService', function(TabService, $scope, UserService){
+
+    TabService.setTab(5);
+
+    var chatMessages = $('.chat-messages');
+    UserService.getUser($scope.id_user).then(function(data){
+
+        $scope.user = data;
+
+    });
+
+    try{
+        var socket = io.connect('http://localhost:1133');
+    }catch(e) {
+        // set status to wan the user
+    }
+
+    if(socket !== undefined){
+
+        $scope.sendMsg = function(input){
+
+            if($scope.message){
+                socket.emit('input', {
+                    email: $scope.user.email,
+                    message: $scope.message
+                });
+                $scope.message = '';
+            }
+
+
+        }
+
+    }
+    else {
+        console.log('undefined');
+    }
+
+    socket.on('output',function(data){
+        if(data.length){
+            // loop all message(s)
+            for(var x=0;x<data.length;x=x+1){
+
+                //var message = document.createElement('div');
+                $('<div/>', {
+                    class: 'chat-message',
+                    text: data[x].email + ': ' + data[x].message
+                }).appendTo('.chat-messages');
+            }
+        }
+    });
 
 }]);

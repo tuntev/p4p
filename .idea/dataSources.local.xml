@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="privateSystem" uuid="5aa34502-7507-4294-b3e6-ab822a5af8f5">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>privatesystem.*</schema-pattern>
+      <default-schemas>privatesystem.*</default-schemas>
+    </data-source>
+  </component>
+</project>
+

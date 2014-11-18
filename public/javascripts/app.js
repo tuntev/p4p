@@ -50,6 +50,11 @@ app.config(['$routeProvider', function($routeProvider){
         controller: 'DemoController'
     });
 
+    $routeProvider.when('/chat', {
+        templateUrl: 'templates/chat.html',
+        controller: 'ChatController'
+    });
+
     $routeProvider.otherwise({
         redirectTo: '/home'
     });

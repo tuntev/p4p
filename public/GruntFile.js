@@ -17,7 +17,8 @@ module.exports = function(grunt){
                         'bower_components/underscore/underscore-min.js',
                         'bower_components/bootstrap/dist/js/bootstrap.min.js',
                         'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-                        'bower_components/angular-dialog-service/dist/dialogs.min.js'
+                        'bower_components/angular-dialog-service/dist/dialogs.min.js',
+                        'javascripts/lib/jquery.timeago.js'
                     ],
                     'javascripts/dev/prod.js': [
                         'javascripts/*.js'

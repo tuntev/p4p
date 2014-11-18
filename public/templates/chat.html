@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="chat">
+        <input type="hidden" class="chat-name" value="<%user.email%>" placeholder="Enter your name"/>
+        <div class="chat-messages" >
+            <div class="chat-message" ng-repeat="message in messages">
+                <%message.email%> - <%message.message%>
+            </div>
+        </div>
+        <textarea class="theMessage" ng-enter="sendMsg()" ng-model="message" placeholder="Type your message"></textarea>
+        <!--<div class="chat-status">-->
+            <!--Status: <span>Idle</span>-->
+        <!--</div>-->
+
+    </div>
+</div>
+
+
+

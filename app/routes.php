@@ -123,6 +123,10 @@ Route::group(array('before'=>'auth'), function(){
         'uses'=>'UserController@show'
     ));
 
+    Route::get('api/users/{id}', array(
+        'uses'=>'UserController@getData'
+    ));
+
     // access level 5 (admin)
 
     Route::group(['before' => 'staff'], function(){

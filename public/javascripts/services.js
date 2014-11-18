@@ -71,3 +71,13 @@ app.service('TabService', function(){
         }
     }
 });
+
+app.service('UserService', ['$http',function($http){
+    return {
+        getUser: function(id){
+            return $http.get('api/users/' + id).then(function(result) {
+                return result.data;
+            });
+        }
+    }
+}]);

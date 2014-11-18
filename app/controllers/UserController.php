@@ -98,6 +98,18 @@ class UserController extends \BaseController {
         }
 	}
 
+    public function getData($id){
+
+        $user = User::find($id);
+        if($user && $user->id == Auth::user()->id){
+            return Response::json($user);
+        }
+        else{
+            return Response::json(['message' => 'User not found']);
+        }
+
+    }
+
 
 	/**
 	 * Show the form for editing the specified resource.

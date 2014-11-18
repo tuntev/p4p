@@ -17,8 +17,7 @@
                 <div class="panel-heading">All Projects</div>
                 <ul class="list-group projectList">
                     <li class="project list-group-item" ng-repeat="project in projects | filter: query">
-                        <div>
-                            <div class="row">
+                            <div id="pID<%project.id%>" class="row">
                                 <div class="col-md-offset-0 col-md-8">
                                     <h4><input type="checkbox" ng-model="project.selected"
                                                ng-checked="project.selected==1"/>
@@ -30,9 +29,9 @@
                                     <span class="cnfBtn_<%project.id%>" ng-hide="<%project.done%>">
                                         <button class="btn btn-success" ng-click="launch('confirm','close',project.id)">Confirm</button>
                                     </span>
+                                    <div class="dateInfo text-right text-muted"><%project.updated_at%></div>
                                 </div>
                             </div>
-                        </div>
                     </li>
                 </ul>
             </div>
