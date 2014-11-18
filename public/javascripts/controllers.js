@@ -254,7 +254,7 @@ app.controller('ChatController', ['TabService','$scope','UserService', function(
 
     if(socket !== undefined){
 
-        $scope.sendMsg = function(input){
+        $scope.sendMsg = function(){
 
             if($scope.message){
                 socket.emit('input', {
@@ -263,27 +263,28 @@ app.controller('ChatController', ['TabService','$scope','UserService', function(
                 });
                 $scope.message = '';
             }
+        };
 
+        socket.on('output',function(data){
+            if(data.length){
 
-        }
+                $('<div/>', {
+                    class: 'chat-message',
+                    text: data[0].email + ': ' + data[0].message
+                }).appendTo('.chat-messages');
 
+            }
+        });
     }
     else {
         console.log('undefined');
     }
 
-    socket.on('output',function(data){
-        if(data.length){
-            // loop all message(s)
-            for(var x=0;x<data.length;x=x+1){
-
-                //var message = document.createElement('div');
-                $('<div/>', {
-                    class: 'chat-message',
-                    text: data[x].email + ': ' + data[x].message
-                }).appendTo('.chat-messages');
-            }
-        }
+    // most important: remove the listeners
+    $scope.$on('$destroy', function (event) {
+        socket.removeAllListeners();
+        // or something like
+        // socket.removeListener(this);
     });
 
 }]);

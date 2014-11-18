@@ -36,19 +36,14 @@ var client = require('socket.io').listen(1133).sockets;
             }
             else{
                 //col.insert({name: name, message: message}, function() {
-
-                    // emit latest message to all clients
-                    client.emit('output', [data]);
-                    //sendStatus({
-                    //    message: "Message sent",
-                    //    clear: true
-                    //});
+                // emit latest message to all clients
+                client.emit('output', [data]);
+                //sendStatus({
+                //    message: "Message sent",
+                //    clear: true
+                //});
                 //});
             }
-
-
-
         });
-
     });
 //});
