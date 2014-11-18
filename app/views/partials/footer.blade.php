@@ -2,7 +2,7 @@
 
 <footer class="text-center pageSection"> &copy 2014 tunte</footer>
 
-<script src="http://localhost:1133/socket.io/socket.io.js"></script>
+
 <script src="{{ asset('javascripts/dev/prod-lib-foot.min.js') }}"></script>
 
 <!--<script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>-->

@@ -239,7 +239,7 @@ app.controller('ChatController', ['TabService','$scope','UserService', function(
 
     TabService.setTab(5);
 
-    var chatMessages = $('.chat-messages');
+    var $chatMessages = $('.chat-messages');
     UserService.getUser($scope.id_user).then(function(data){
 
         $scope.user = data;
@@ -271,7 +271,8 @@ app.controller('ChatController', ['TabService','$scope','UserService', function(
                 $('<div/>', {
                     class: 'chat-message',
                     text: data[0].email + ': ' + data[0].message
-                }).appendTo('.chat-messages');
+                }).appendTo($chatMessages);
+                $chatMessages.animate({scrollTop: '3000px'});
 
             }
         });
