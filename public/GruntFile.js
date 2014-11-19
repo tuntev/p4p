@@ -18,10 +18,12 @@ module.exports = function(grunt){
                         'bower_components/bootstrap/dist/js/bootstrap.min.js',
                         'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
                         'bower_components/angular-dialog-service/dist/dialogs.min.js',
-                        'javascripts/lib/jquery.timeago.js'
+                        'javascripts/lib/jquery-dateFormat.min.js'
                     ],
                     'javascripts/dev/prod.js': [
-                        'javascripts/*.js'
+                        'javascripts/*.js',
+                        'javascripts/controllers/*.js'
+
                     ],
                     'styles/dev/prod-styles.css': [
                         'bower_components/bootstrap/dist/css/bootstrap.min.css',
@@ -36,7 +38,8 @@ module.exports = function(grunt){
             prod: {
                 files: {
                     'javascripts/dev/prod.min.js': [
-                        'javascripts/*.js'
+                        'javascripts/*.js',
+                        'javascripts/controllers/*.js'
                     ]
                 }
             }
