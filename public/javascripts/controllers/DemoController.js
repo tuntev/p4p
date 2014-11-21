@@ -36,7 +36,7 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
         // $scope.contactData = data;
         $scope.contactData = {
             id: id,
-            name: 'John',
+            name: 'Ime Prezime',
             info: ''
         };
     };

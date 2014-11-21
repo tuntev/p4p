@@ -30,11 +30,6 @@ angular.module('app.directives',[])
             templateUrl: 'templates/contacts/contact.html',
             scope: {
                 contactData: '='
-            },
-            link: function(scope, element, attr){
-                scope.$watch('contactData', function(data) {
-
-                })
             }
         }
     })

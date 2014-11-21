@@ -18,7 +18,7 @@ createAccountApp.config(['$routeProvider', function($routeProvider){
 //    });
 }]);
 
-var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main'], ['$interpolateProvider', function($interpolateProvider) {
+var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main','app.directives'], ['$interpolateProvider', function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
 }]);
@@ -138,18 +138,6 @@ app.directive('ngEnter', function () {
     };
 });
 
-app.directive('newMessage', function(){
-   return {
-        restrict: 'E',
-        scope: {
-            message: '=data'
-        },
-        templateUrl: 'templates/chat/message.html',
-        controller: function($scope){
-
-        }
-   };
-});
 /**
  * Created by tunte on 11/3/14.
  */
@@ -286,7 +274,7 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
 
         socket.on('output',function(data){
             if(data.length){
-
+                console.log(data[0]);
                 data[0].created_at = $scope.prettyDate(data[0].created_at);
                 $scope.messages.push(data[0]);
                 $scope.$apply();
@@ -311,6 +299,13 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
             }
             $scope.$apply();
         });
+
+        socket.on('delete_msg_resp', function(id){
+            $scope.messages = $scope.messages.filter(function(val){
+                return val.id != id;
+            });
+            $scope.$apply();
+        });
     }
     else {
         $('.theMessage').attr("disabled","disabled");
@@ -326,7 +321,11 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
 
     $scope.prettyDate = function(date){
         return $.format.date(date, "dd/MM/yyyy HH:mm:ss")
-    }
+    };
+
+    $scope.deleteMsg = function(id){
+        socket.emit('delete_msg_req', id);
+    };
 
 }]);
 /**
@@ -336,19 +335,41 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
 
     TabService.setTab(4);
 
+    $scope.toggle = false;
+
     $scope.drawResult = function(text){
         if(text.length > 0){
             $http.get('javascripts/data.json').success(function(data){
                 $scope.data = data;
-                console.log('search');
             });
+
+            if(!$scope.toggle){
+                $scope.toggle = true;
+                $('.searchOut').slideToggle();
+            }
+
         } else {
             $scope.data = {};
+            $scope.visible = false;
+            if($scope.toggle){
+                $scope.toggle = false;
+                $('.searchOut').slideToggle();
+            }
         }
     };
     $scope.showContent = function(id){
-        $scope.id = id;
-    }
+
+        $('.searchOut').slideToggle();
+        $scope.toggle = false;
+        $scope.visible = true;
+        // get full data for that id
+        // $scope.contactData = data;
+        $scope.contactData = {
+            id: id,
+            name: 'Ime Prezime',
+            info: ''
+        };
+    };
 
 }]);
 

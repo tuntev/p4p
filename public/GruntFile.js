@@ -39,7 +39,8 @@ module.exports = function(grunt){
                 files: {
                     'javascripts/dev/prod.min.js': [
                         'javascripts/*.js',
-                        'javascripts/controllers/*.js'
+                        'javascripts/controllers/*.js',
+                        'javascripts/directives/*.js'
                     ]
                 }
             }

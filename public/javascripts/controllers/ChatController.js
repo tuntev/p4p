@@ -75,6 +75,7 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
                 $scope.messages[i].created_at = $scope.prettyDate($scope.messages[i].created_at);
             }
             $scope.$apply();
+            $chatMessages.animate({scrollTop: '3000px'});
         });
 
         socket.on('delete_msg_resp', function(id){
