@@ -41,16 +41,3 @@ app.directive('ngEnter', function () {
         });
     };
 });
-
-app.directive('newMessage', function(){
-   return {
-        restrict: 'E',
-        scope: {
-            message: '=data'
-        },
-        templateUrl: 'templates/chat/message.html',
-        controller: function($scope){
-
-        }
-   };
-});

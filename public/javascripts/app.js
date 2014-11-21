@@ -18,7 +18,7 @@ createAccountApp.config(['$routeProvider', function($routeProvider){
 //    });
 }]);
 
-var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main'], ['$interpolateProvider', function($interpolateProvider) {
+var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main','app.directives'], ['$interpolateProvider', function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
 }]);

@@ -23,8 +23,8 @@
 
 <script src="{{ asset('javascripts/services.js') }}"></script>
 <script src="{{ asset('javascripts/directives.js') }}"></script>
-<script src="{{ asset('javascripts/directives/newMessage.js') }}"></script>
-<script src="{{ asset('javascripts/custom.js') }}"></script>-
+<script src="{{ asset('javascripts/directives/directives.js') }}"></script>
+<script src="{{ asset('javascripts/custom.js') }}"></script>
 
 <script src="{{ asset('javascripts/createAccount/controllers.js') }}"></script>
 

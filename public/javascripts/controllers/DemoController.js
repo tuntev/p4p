@@ -9,14 +9,22 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
         if(text.length > 0){
             $http.get('javascripts/data.json').success(function(data){
                 $scope.data = data;
-                console.log('search');
             });
         } else {
             $scope.data = {};
+            $scope.visible = false;
         }
     };
     $scope.showContent = function(id){
-        $scope.id = id;
-    }
+
+        $scope.visible = true;
+        // get full data for that id
+        // $scope.contactData = data;
+        $scope.contactData = {
+            id: id,
+            name: 'John',
+            info: ''
+        };
+    };
 
 }]);

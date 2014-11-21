@@ -1,0 +1,15 @@
+<div id="pID<%project.id%>" class="row">
+    <div class="col-md-offset-0 col-md-8">
+        <h4><input type="checkbox" ng-model="project.selected"
+                   ng-checked="project.selected==1"/>
+            <a href="#/projects/<%project.id%>"><%project.title%></a>
+        </h4>
+        <div class="text-muted"><%project.student%></div>
+    </div>
+    <div class="col-md-4 text-right" ng-show="access === 5">
+                                    <span class="cnfBtn_<%project.id%>" ng-hide="<%project.done%>">
+                                        <button class="btn btn-success" ng-click="launch('confirm','close',project.id)">Confirm</button>
+                                    </span>
+        <div class="dateInfo text-right text-muted"><%project.updated_at%></div>
+    </div>
+</div>

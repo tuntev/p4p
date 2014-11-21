@@ -8,5 +8,5 @@ composer.lock
 Thumbs.db
 /public/node_modules
 /public/bower_components
-/public/javascripts/chatserver/node_modules
+/public/chatserver/node_modules
 
