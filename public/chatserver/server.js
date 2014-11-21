@@ -51,6 +51,25 @@ client.on('connection', function(socket){
 
         }
     });
+
+    socket.on('delete_msg_req', function(id){
+
+        var dbPromise = db.query('DELETE FROM chat_messages WHERE id='+id);
+        dbPromise.then(
+            function(result) {
+                client.emit('delete_msg_resp',id);
+            },
+            function() {
+                // TODO: log errors in file
+                socket.emit('error_msg', 'Грешка при праќањето на пораката');
+                return;
+            }
+        );
+
+
+        // remove the message form the db.
+        // emit event for delete the message form the clients
+    });
 });
 
 function _storeNewMessage(data, socket) {
@@ -63,6 +82,7 @@ function _storeNewMessage(data, socket) {
     dbPromise.then(
         function(result) {
             if (result.insertId >= 0) {
+                data.id = result.insertId;
                 data.created_at = msgDate;
                 client.emit('output', [data]);
             }

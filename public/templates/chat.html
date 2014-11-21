@@ -3,6 +3,8 @@
         <input type="hidden" class="chat-name" value="<%user.email%>" placeholder="Enter your name"/>
         <div class="chat-messages" >
             <div class="chat-message" ng-repeat="message in messages">
+                <i confirmed-click="deleteMsg(<%message.id%>)" ng-confirm-click="Delete message?"
+                   class="text-danger glyphicon glyphicon-trash"></i>
                 <new-message data="message"></new-message>
             </div>
         </div>
@@ -10,9 +12,5 @@
         <div class="chat-status">
             Status: <span>Idle</span>
         </div>
-
     </div>
 </div>
-
-
-

@@ -51,7 +51,7 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
 
         socket.on('output',function(data){
             if(data.length){
-
+                console.log(data[0]);
                 data[0].created_at = $scope.prettyDate(data[0].created_at);
                 $scope.messages.push(data[0]);
                 $scope.$apply();
@@ -76,6 +76,13 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
             }
             $scope.$apply();
         });
+
+        socket.on('delete_msg_resp', function(id){
+            $scope.messages = $scope.messages.filter(function(val){
+                return val.id != id;
+            });
+            $scope.$apply();
+        });
     }
     else {
         $('.theMessage').attr("disabled","disabled");
@@ -91,6 +98,10 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
 
     $scope.prettyDate = function(date){
         return $.format.date(date, "dd/MM/yyyy HH:mm:ss")
-    }
+    };
+
+    $scope.deleteMsg = function(id){
+        socket.emit('delete_msg_req', id);
+    };
 
 }]);
