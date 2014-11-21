@@ -346,3 +346,8 @@ footer{
 .progress-meter > .meter.meter-right > .meter-text {
     text-align: right;
 }
+
+.searchOut {
+    height: 206px;
+    overflow: auto;
+}
