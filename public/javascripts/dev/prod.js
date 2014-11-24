@@ -298,6 +298,7 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
                 $scope.messages[i].created_at = $scope.prettyDate($scope.messages[i].created_at);
             }
             $scope.$apply();
+            $chatMessages.animate({scrollTop: '3000px'});
         });
 
         socket.on('delete_msg_resp', function(id){
@@ -428,6 +429,9 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
             });
 
         };
+
+        $scope.currentPage = 1;
+        $scope.pageSize = 10;
 
         $scope.data = {
             title : "",

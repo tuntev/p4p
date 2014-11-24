@@ -26,6 +26,13 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
 
         };
 
+        $scope.currentPage = 1;
+        $scope.pageSize = 5;
+
+        $scope.pageChangeHandler = function(num) {
+            //console.log('page changed to ' + num);
+        };
+
         $scope.data = {
             title : "",
             student : ""
@@ -104,7 +111,6 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
 
                         });
                     }
-
                     break;
                 case 'custom':
                     var dlg = dialogs.create('/dialogs/custom.html','customDialogCtrl',{},{size:'lg',keyboard: true,backdrop: false,windowClass: 'my-class'});

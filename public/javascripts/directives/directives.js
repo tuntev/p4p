@@ -14,13 +14,18 @@ angular.module('app.directives',[])
             }
         };
     })
-    .directive('singleProject', function(){
+    .directive('singleProject', function($compile){
         return {
             restrict: 'E',
             templateUrl: 'templates/projects/project.html',
             scope: {
                 project: '=',
-                access: '='
+                access: '=',
+                onClick: '&'
+
+            },
+            link: function(scope, element, attrs) {
+                //$compile(element.contents())(scope.$new());
             }
         }
     })

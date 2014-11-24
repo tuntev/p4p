@@ -1,25 +1,31 @@
 <div class="projects">
     <div class="row">
         <div class="col-md-6">
-            <form class="form-horizontal" role="form">
-                <div class="form-group">
-                    <label for="searchP" class="col-sm-2 control-label">Search</label>
-                    <div class="col-sm-7">
-                        <input ng-model="query" autofocus type="text" class="form-control" id="searchP" placeholder="Type in to search">
-                    </div>
-                    <div class="col-md-3" ng-show="access === 5">
-                        <button ng-click="launch('confirm','delete')" class="btn btn-danger">Delete selected</button>
-                    </div>
+            <div class="row" style="margin-bottom: 10px">
+                <div class="col-xs-4">
+                    <label class="control-label" for="">Search</label>
+                    <input ng-model="query" autofocus type="text" class="form-control" id="searchP" placeholder="Type in to search">
                 </div>
-            </form>
+                <div class="col-xs-2">
+                    <label class="control-label" for="">Per Page</label>
+                    <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                </div>
+                <div class="col-md-4 col-md-offset-2 text-right" ng-show="access === 5">
+                    <label class="control-label" for="">&nbsp;</label>
+                    <button ng-click="launch('confirm','delete')" class="btn btn-danger form-control">Delete selected</button>
+                </div>
+            </div>
             <div class="panel panel-default">
                 <!-- Default panel contents -->
                 <div class="panel-heading">All Projects</div>
                 <ul class="list-group projectList">
-                    <li class="project list-group-item" ng-repeat="project in projects | filter: query">
-                        <single-project project="project" access="access"></single-project>
+                    <li class="project list-group-item" dir-paginate="project in projects | filter: query | itemsPerPage: pageSize" current-page="currentPage">
+                        <single-project project="project" access="access" on-click="launch(type,action,id)"></single-project>
                     </li>
                 </ul>
+            </div>
+            <div class="text-center">
+                <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="templates/dirPagination.tpl.html"></dir-pagination-controls>
             </div>
         </div>
         <div class="col-md-6" ng-show="access === 5">

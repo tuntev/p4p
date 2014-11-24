@@ -11,6 +11,7 @@
 {{--<script src="{{ asset('bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js') }}"></script>--}}
 {{--<script src="{{ asset('bower_components/angular-dialog-service/dist/dialogs.min.js') }}"></script>--}}
 {{--<script src="{{ asset('javascripts/lib/jquery.timeago.js') }}"></script>--}}
+{{--<script src="{{ asset('bower_components/angular-utils-pagination/dirPagination.js') }}"></script>--}}
 
 {{--<script src="{{ asset('javascripts/dev/prod.min.js') }}"></script>--}}
 <script src="{{ asset('javascripts/app.js') }}"></script>
