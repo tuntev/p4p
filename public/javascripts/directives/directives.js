@@ -34,7 +34,7 @@ angular.module('app.directives',[])
             restrict: 'E',
             templateUrl: 'templates/contacts/contact.html',
             scope: {
-                contactData: '='
+                student: '='
             }
         }
     })

@@ -1,16 +1,39 @@
 /**
  * Created by tunte on 19-Nov-14.
  */
-app.controller('DemoController', ['TabService','$scope','$http', function(TabService, $scope, $http){
+app.controller('DemoController', ['TabService','$scope','$http', 'StudentService', function(TabService, $scope, $http, StudentService){
 
     TabService.setTab(4);
+
+    $scope.students = [];
+
+    //var students = new Bloodhound({
+    //    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+    //    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    //    remote: 'api/student/%QUERY'
+    //});
+    //
+    //students.initialize();
+    //
+    //$('#textInput').typeahead({
+    //        hint: true,
+    //        highlight: true,
+    //        minLength: 2
+    //    },
+    //    {
+    //        name: 'students',
+    //        displayKey: 'username',
+    //        source: students.ttAdapter()
+    //    }
+    //);
 
     $scope.toggle = false;
 
     $scope.drawResult = function(text){
         if(text.length > 0){
-            $http.get('javascripts/data.json').success(function(data){
-                $scope.data = data;
+
+            StudentService.getStudentByName(text).then(function(data) {
+                $scope.students = data;
             });
 
             if(!$scope.toggle){
@@ -19,7 +42,7 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
             }
 
         } else {
-            $scope.data = {};
+            $scope.students = {};
             $scope.visible = false;
             if($scope.toggle){
                 $scope.toggle = false;
@@ -32,13 +55,11 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
         $('.searchOut').slideToggle();
         $scope.toggle = false;
         $scope.visible = true;
-        // get full data for that id
-        // $scope.contactData = data;
-        $scope.contactData = {
-            id: id,
-            name: 'Ime Prezime',
-            info: ''
-        };
+
+        StudentService.getStudentById(id).then(function(data) {
+            $scope.student = data;
+        });
+
     };
 
 }]);

@@ -348,6 +348,6 @@ footer{
 }
 
 .searchOut {
-    height: 206px;
+    max-height: 206px;
     overflow: auto;
 }

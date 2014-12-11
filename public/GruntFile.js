@@ -19,7 +19,8 @@ module.exports = function(grunt){
                         'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
                         'bower_components/angular-dialog-service/dist/dialogs.min.js',
                         'javascripts/lib/jquery-dateFormat.min.js',
-                        'bower_components/angular-utils-pagination/dirPagination.js'
+                        'bower_components/angular-utils-pagination/dirPagination.js',
+                        'bower_components/typeahead.js/dist/typeahead.bundle.min.js'
                     ],
                     'javascripts/dev/prod.js': [
                         'javascripts/*.js',

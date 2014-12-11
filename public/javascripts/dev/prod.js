@@ -18,44 +18,39 @@ createAccountApp.config(['$routeProvider', function($routeProvider){
 //    });
 }]);
 
-var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main','app.directives'], ['$interpolateProvider', function($interpolateProvider) {
+var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.main','app.directives','angularUtils.directives.dirPagination'], ['$interpolateProvider', function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
 }]);
 
 app.config(['$routeProvider', function($routeProvider){
 
-    $routeProvider.when('/home', {
+    $routeProvider
+        .when('/home', {
         templateUrl: 'templates/home.html',
         controller: 'HomeController'
-    });
-
-    $routeProvider.when('/projects', {
+    })
+        .when('/projects', {
         templateUrl: 'templates/projects.html',
         controller: 'ProjectsController'
-    });
-
-    $routeProvider.when('/projects/:projectId', {
+    })
+        .when('/projects/:projectId', {
         templateUrl: 'templates/project_details.html',
         controller: 'ProjectDetailsController'
-    });
-
-    $routeProvider.when('/todo', {
+    })
+        .when('/todo', {
         templateUrl: 'templates/todos.html',
         controller: 'TodoController'
-    });
-
-    $routeProvider.when('/demo', {
+    })
+        .when('/demo', {
         templateUrl: 'templates/demo.html',
         controller: 'DemoController'
-    });
-
-    $routeProvider.when('/chat', {
+    })
+        .when('/chat', {
         templateUrl: 'templates/chat.html',
         controller: 'ChatController'
-    });
-
-    $routeProvider.otherwise({
+    })
+        .otherwise({
         redirectTo: '/home'
     });
 }]);
@@ -221,6 +216,23 @@ app.service('UserService', ['$http',function($http){
         }
     }
 }]);
+
+app.service('StudentService', ['$http',function($http){
+    return {
+
+        getStudentByName: function(input){
+            return $http.get('api/student/' + input).then(function(result) {
+                return result.data;
+            });
+        },
+
+        getStudentById: function(id){
+            return $http.get('api/student/' + id + '/edit').then(function(result) {
+                return result.data;
+            });
+        }
+    }
+}]);
 /**
  * Created by tunte on 19-Nov-14.
  */
@@ -274,7 +286,6 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
 
         socket.on('output',function(data){
             if(data.length){
-                console.log(data[0]);
                 data[0].created_at = $scope.prettyDate(data[0].created_at);
                 $scope.messages.push(data[0]);
                 $scope.$apply();
@@ -332,16 +343,39 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
 /**
  * Created by tunte on 19-Nov-14.
  */
-app.controller('DemoController', ['TabService','$scope','$http', function(TabService, $scope, $http){
+app.controller('DemoController', ['TabService','$scope','$http', 'StudentService', function(TabService, $scope, $http, StudentService){
 
     TabService.setTab(4);
+
+    $scope.students = [];
+
+    //var students = new Bloodhound({
+    //    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+    //    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    //    remote: 'api/student/%QUERY'
+    //});
+    //
+    //students.initialize();
+    //
+    //$('#textInput').typeahead({
+    //        hint: true,
+    //        highlight: true,
+    //        minLength: 2
+    //    },
+    //    {
+    //        name: 'students',
+    //        displayKey: 'username',
+    //        source: students.ttAdapter()
+    //    }
+    //);
 
     $scope.toggle = false;
 
     $scope.drawResult = function(text){
         if(text.length > 0){
-            $http.get('javascripts/data.json').success(function(data){
-                $scope.data = data;
+
+            StudentService.getStudentByName(text).then(function(data) {
+                $scope.students = data;
             });
 
             if(!$scope.toggle){
@@ -350,7 +384,7 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
             }
 
         } else {
-            $scope.data = {};
+            $scope.students = {};
             $scope.visible = false;
             if($scope.toggle){
                 $scope.toggle = false;
@@ -363,13 +397,11 @@ app.controller('DemoController', ['TabService','$scope','$http', function(TabSer
         $('.searchOut').slideToggle();
         $scope.toggle = false;
         $scope.visible = true;
-        // get full data for that id
-        // $scope.contactData = data;
-        $scope.contactData = {
-            id: id,
-            name: 'Ime Prezime',
-            info: ''
-        };
+
+        StudentService.getStudentById(id).then(function(data) {
+            $scope.student = data;
+        });
+
     };
 
 }]);
@@ -431,7 +463,11 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
         };
 
         $scope.currentPage = 1;
-        $scope.pageSize = 10;
+        $scope.pageSize = 5;
+
+        $scope.pageChangeHandler = function(num) {
+            //console.log('page changed to ' + num);
+        };
 
         $scope.data = {
             title : "",
@@ -511,7 +547,6 @@ app.controller('ProjectsController', ['$scope','ProjectsService','TabService','$
 
                         });
                     }
-
                     break;
                 case 'custom':
                     var dlg = dialogs.create('/dialogs/custom.html','customDialogCtrl',{},{size:'lg',keyboard: true,backdrop: false,windowClass: 'my-class'});

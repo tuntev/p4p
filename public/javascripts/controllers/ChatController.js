@@ -51,7 +51,6 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
 
         socket.on('output',function(data){
             if(data.length){
-                console.log(data[0]);
                 data[0].created_at = $scope.prettyDate(data[0].created_at);
                 $scope.messages.push(data[0]);
                 $scope.$apply();

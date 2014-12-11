@@ -131,6 +131,13 @@ Route::group(array('before'=>'auth'), function(){
 
     Route::group(['before' => 'staff'], function(){
 
+        Route::group(['prefix' => 'api'], function(){
+
+            Route::resource('student', 'StudentController');
+
+        });
+
+
         Route::group(['prefix' => 'api/p4p'], function(){
 
             // get projects

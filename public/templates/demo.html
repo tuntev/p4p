@@ -2,10 +2,11 @@
 <div class="row">
     <div class="col-md-offset-2 col-md-8">
         <h3>Search</h3>
-        <input ng-change="drawResult(text)" ng-model="text" type="text" class="form-control" placeholder="Type in to start searching">
+        <!---->
+        <input id="textInput" ng-change="drawResult(text)" ng-model="text" type="text" class="form-control" placeholder="Type in to start searching">
         <div class="list-group">
             <div class="searchOut" hidden>
-                <a ng-repeat="person in data" href="" ng-click="showContent(person.id)" class="list-group-item"><%person.name%></a>
+                <a ng-repeat="student in students" href="" ng-click="showContent(student.id)" class="list-group-item"><%student.username%></a>
             </div>
         </div>
     </div>
@@ -13,6 +14,6 @@
 </div>
 <div class="row">
     <div class="col-md-12" ng-show="visible">
-        <contact-card contact-data="contactData"></contact-card>
+        <contact-card student="student"></contact-card>
     </div>
 </div>

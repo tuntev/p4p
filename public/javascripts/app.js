@@ -25,37 +25,32 @@ var app = angular.module('app',['ngRoute','ngSanitize','ui.bootstrap','dialogs.m
 
 app.config(['$routeProvider', function($routeProvider){
 
-    $routeProvider.when('/home', {
+    $routeProvider
+        .when('/home', {
         templateUrl: 'templates/home.html',
         controller: 'HomeController'
-    });
-
-    $routeProvider.when('/projects', {
+    })
+        .when('/projects', {
         templateUrl: 'templates/projects.html',
         controller: 'ProjectsController'
-    });
-
-    $routeProvider.when('/projects/:projectId', {
+    })
+        .when('/projects/:projectId', {
         templateUrl: 'templates/project_details.html',
         controller: 'ProjectDetailsController'
-    });
-
-    $routeProvider.when('/todo', {
+    })
+        .when('/todo', {
         templateUrl: 'templates/todos.html',
         controller: 'TodoController'
-    });
-
-    $routeProvider.when('/demo', {
+    })
+        .when('/demo', {
         templateUrl: 'templates/demo.html',
         controller: 'DemoController'
-    });
-
-    $routeProvider.when('/chat', {
+    })
+        .when('/chat', {
         templateUrl: 'templates/chat.html',
         controller: 'ChatController'
-    });
-
-    $routeProvider.otherwise({
+    })
+        .otherwise({
         redirectTo: '/home'
     });
 }]);

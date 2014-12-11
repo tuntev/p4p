@@ -81,3 +81,20 @@ app.service('UserService', ['$http',function($http){
         }
     }
 }]);
+
+app.service('StudentService', ['$http',function($http){
+    return {
+
+        getStudentByName: function(input){
+            return $http.get('api/student/' + input).then(function(result) {
+                return result.data;
+            });
+        },
+
+        getStudentById: function(id){
+            return $http.get('api/student/' + id + '/edit').then(function(result) {
+                return result.data;
+            });
+        }
+    }
+}]);
