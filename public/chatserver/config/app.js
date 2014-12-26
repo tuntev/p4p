@@ -2,7 +2,7 @@ var config = {
     host: 'http://localhost',
     db: {
         host: 'localhost',
-        database: 'privatesystem',
+        database: 'privateSystem',
         user: 'root',
         password: ''
     },
