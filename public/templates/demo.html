@@ -3,8 +3,8 @@
     <div class="col-md-offset-2 col-md-8">
         <h3>Search</h3>
         <!---->
-        <input id="textInput" ng-change="drawResult(text)" ng-model="text" type="text" class="form-control" placeholder="Type in to start searching">
-        <div class="list-group">
+        <input style="position: relative" id="textInput" ng-change="drawResult(text)" ng-model="text" type="text" class="form-control" placeholder="Type in to start searching">
+        <div class="list-group searchResults">
             <div class="searchOut" hidden>
                 <a ng-repeat="student in students" href="" ng-click="showContent(student.id)" class="list-group-item"><%student.username%></a>
             </div>

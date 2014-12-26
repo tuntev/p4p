@@ -38,7 +38,7 @@ app.controller('DemoController', ['TabService','$scope','$http', 'StudentService
 
             if(!$scope.toggle){
                 $scope.toggle = true;
-                $('.searchOut').slideToggle();
+                $('.searchOut').toggle();
             }
 
         } else {
@@ -46,13 +46,13 @@ app.controller('DemoController', ['TabService','$scope','$http', 'StudentService
             $scope.visible = false;
             if($scope.toggle){
                 $scope.toggle = false;
-                $('.searchOut').slideToggle();
+                $('.searchOut').toggle();
             }
         }
     };
     $scope.showContent = function(id){
 
-        $('.searchOut').slideToggle();
+        $('.searchOut').toggle();
         $scope.toggle = false;
         $scope.visible = true;
 

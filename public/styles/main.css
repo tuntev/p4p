@@ -351,3 +351,9 @@ footer{
     max-height: 206px;
     overflow: auto;
 }
+
+.searchResults {
+    position: absolute;
+    width: calc(96%);
+    z-index: 1000;
+}

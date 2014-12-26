@@ -14,7 +14,7 @@
     <br/>
     <div ng-view class="theSPA"></div>
 </div>
-<script src="http://localhost:1133/socket.io/socket.io.js"></script>
+<script src="http://localhost:3333/socket.io/socket.io.js"></script>
 @stop
 
 

@@ -8,7 +8,7 @@ var config = {
     },
 
     chat: {
-        port: 1133
+        port: 3333
     }
 }
 module.exports = config;

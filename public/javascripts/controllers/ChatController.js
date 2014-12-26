@@ -28,7 +28,7 @@ app.controller('ChatController', ['TabService','$scope','UserService','$sanitize
     });
 
     try{
-        var socket = io.connect('http://localhost:1133');
+        var socket = io.connect('http://localhost:3333');
     }catch(e) {
         // set status to wan the user
     }
