@@ -44,9 +44,7 @@ class StudentController extends \BaseController {
 	public function show($name)
 	{
         // return the json object with the results
-//        $results = Student::where('username', 'LIKE', '%'.$name.'%')->get();
-        $results = DB::table('students')
-            ->select('*')->where('username','LIKE', '%'.$name.'%')->get();
+        $results = Student::where('username', 'LIKE', '%'.$name.'%')->take(20)->get();
 
         return Response::json($results);
 	}
