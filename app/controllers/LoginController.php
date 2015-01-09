@@ -82,8 +82,6 @@ class LoginController extends BaseController {
             $me = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
             $profile = Profile::whereUid($me['id'])->first();
-            echo $me['id']; echo '<br>';
-//            echo '<pre>';print_r($me); die;
             if (empty($profile)) {
 
                 $user = new User;
