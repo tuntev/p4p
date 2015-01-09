@@ -53,6 +53,7 @@ app.config(['$routeProvider', function($routeProvider){
         .otherwise({
         redirectTo: '/home'
     });
+    
 }]);
 
 
